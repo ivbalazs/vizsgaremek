@@ -1,0 +1,103 @@
+<div class="main-content mt-3 min-vh-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngIf="cost" class="col-6 offset-3">
+                <form #costForm="ngForm" (ngSubmit)="setCostToDatabase(cost)">
+                    <div *ngIf="!updating" class="form-group">
+                        <h2 *ngIf="cost.id==0" class="card-title mb-5">Új költség létrehozása</h2>
+                        <h2 *ngIf="cost.id!=0" class="card-title mb-5">Költség módosítása
+                        </h2>
+                        <label for="cost">#</label>
+                        <input [(ngModel)]="cost.id" id="cost" name="cost" type="number" class="form-control" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Név</label>
+                        <input name="name" [(ngModel)]="cost.name" type="text" class="form-control pl-3"
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+
+                        <div [hidden]="costForm.controls.name?.valid ||
+                                       costForm.controls.name?.pristine
+                            " class="error-message">
+                            Érvényes nevet kell megadni.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Dátum</label>
+                        <input name="date" [(ngModel)]="cost.date" type="text" class="form-control pl-3"
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí0-9.-]+$" required>
+
+                        <div [hidden]="
+                                        costForm.controls.date?.valid ||
+                                        costForm.controls.date?.pristine
+                                        " class="error-message">
+                            Érvényes dátumot kell megadni.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sum">Összeg</label>
+                        <input name="sum" [(ngModel)]="cost.sum" type="number" class="form-control pl-3"
+                            pattern="^[0-9]\d*$" required>
+
+                        <div [hidden]="costForm.controls.sum?.valid ||
+                                       costForm.controls.sum?.pristine" class="error-message">
+                            Érvényes összeget kell megadni.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Leírás</label>
+                        <input name="description" [(ngModel)]="cost.description" type="text" class="form-control pl-3"
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+
+                        <div [hidden]="
+                                        costForm.controls.description?.valid ||
+                                        costForm.controls.description?.pristine
+                                        " class="error-message">
+                            Érvényes leírást kell megadni.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="costCategoryName">Költség kategória</label>
+                        <input name="costCategoryName" [(ngModel)]="cost.costCategoryName" type="text"
+                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+
+                        <div [hidden]="
+                                        costForm.controls.costCategoryName?.valid ||
+                                        costForm.controls.costCategoryName?.pristine
+                                        " class="error-message">
+                            Érvényes költség kategória nevet kell megadni.
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="costServiceName">Költség szolgáltató</label>
+                        <input name="costServiceName" [(ngModel)]="cost.costServiceName" type="text"
+                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+
+                        <div [hidden]="
+                                        costForm.controls.costServiceName?.valid ||
+                                        costForm.controls.costServiceName?.pristine
+                                        " class="error-message">
+                            Érvényes költség kategória szolgáltató nevet kell megadni.
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="costForm.invalid" class="alert alert-warning text-center mt-2" role="alert">
+                        All fields need to be filled!
+                    </div>
+
+                    <button [disabled]="costForm.invalid || updating" type="submit" class="btn btn-block btn-info mb-5">
+                        <i *ngIf="!updating" class="fa fa-save"></i>
+                        <i *ngIf="updating" class="fa fa-refresh"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
