@@ -135,7 +135,6 @@ A költségekhez tartozó adatok:
 ---
 
 **Osztály neve:** cost-category
-
 **Osztály helye:** model/cost-category  
 
 **Service neve:** cost-category   

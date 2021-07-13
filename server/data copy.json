@@ -1,94 +1,106 @@
 {
-    "costs": [
-        {
-            "id": 1,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 2,
-            "name": "Zsemle",
-            "date": "2021.07.10",
-            "sum": 300,
-            "description": "Kerek zsemle",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "LIDL"
-        },
-        {
-            "id": 3,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 4,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 5,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 6,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 7,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 8,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 9,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        },
-        {
-            "id": 10,
-            "name": "Kifli",
-            "date": "2021.08.10",
-            "sum": 200,
-            "description": "Görbe kifli",
-            "costCategoryName": "Élelmiszer",
-            "costServiceName": "Aldi"
-        }
-    ]
+  "costs": [
+    {
+      "id": 1,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 2,
+      "name": "Zsemle",
+      "date": "2021.07.10",
+      "sum": 300,
+      "description": "Kerek zsemle",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "LIDL"
+    },
+    {
+      "id": 3,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 4,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 5,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 6,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 7,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 8,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 9,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    },
+    {
+      "id": 10,
+      "name": "Kifli",
+      "date": "2021.08.10",
+      "sum": 200,
+      "description": "Görbe kifli",
+      "costCategoryName": "Élelmiszer",
+      "costServiceName": "Aldi"
+    }
+  ],
+  "costcategories": [
+    {
+      "id": 1,
+      "costCategoryName": "Élelmiszer",
+      "description": "kaja"
+    },
+    {
+      "id": 2,
+      "costCategoryName": "Ruházat",
+      "description": "ruha"
+    }
+  ]
 }

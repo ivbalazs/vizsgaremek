@@ -7,12 +7,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { CostComponent } from './page/cost/cost.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { EditCostComponent } from './page/edit-cost/edit-cost.component';
+import { CostCategoryComponent } from './page/cost-category/cost-category.component';
+import { EditCostCategoryComponent } from './page/edit-cost-category/edit-cost-category.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: DashboardComponent
-  // },
   {
     path: 'dashboard',
     component: DashboardComponent
@@ -33,6 +31,14 @@ const routes: Routes = [
   {
     path: 'cost/:id',
     component: EditCostComponent
+  },
+  {
+    path: 'costcategory',
+    component: CostCategoryComponent
+  },
+  {
+    path: 'costcategory/:id',
+    component: EditCostCategoryComponent
   },
   {
     path: '**',

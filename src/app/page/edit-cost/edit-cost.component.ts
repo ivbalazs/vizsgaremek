@@ -34,7 +34,6 @@ export class EditCostComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) =>
       this.costService.get(params.id).subscribe((cost) => {
-        console.log(cost);
         this.cost = cost || new Cost();
       })
     );
@@ -56,14 +55,14 @@ export class EditCostComponent implements OnInit {
     if (cost.id === 0) {
       this.costService.create(cost).subscribe(
         () => {
-          this.toastr.success('You have successfully added a cost.', 'Success!', {
+          this.toastr.success('Sikeresen módosítottad a költséget!', 'Módosítva!', {
             timeOut: 3000,
           });
           this.updating = false;
           this.router.navigate(['cost']);
         },
         (error) =>
-          this.toastr.error('There has been an error. The cost is not added.', 'Error!', {
+          this.toastr.error('Hiba történt, nem sikerült módosítani a költséget!', 'Hiba!', {
             timeOut: 3000,
           })
       );

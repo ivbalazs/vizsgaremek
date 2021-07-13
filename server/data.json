@@ -90,5 +90,27 @@
       "costCategoryName": "Élelmiszer",
       "costServiceName": "Aldi"
     }
+  ],
+  "costcategories": [
+    {
+      "id": 1,
+      "costCategoryName": "Élelmiszer",
+      "description": "kaja"
+    },
+    {
+      "id": 2,
+      "costCategoryName": "Ruházat",
+      "description": "ruha"
+    },
+    {
+      "id": 3,
+      "costCategoryName": "Áram számla",
+      "description": "Elmű"
+    },
+    {
+      "id": 4,
+      "costCategoryName": "Autó",
+      "description": "benzin"
+    }
   ]
 }

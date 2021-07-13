@@ -29,6 +29,8 @@ import { SorterPipe } from './pipe/sorter.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { EditCostComponent } from './page/edit-cost/edit-cost.component';
+import { CostCategoryComponent } from './page/cost-category/cost-category.component';
+import { EditCostCategoryComponent } from './page/edit-cost-category/edit-cost-category.component';
 
 @NgModule({
   imports: [
@@ -57,6 +59,8 @@ import { EditCostComponent } from './page/edit-cost/edit-cost.component';
     SorterPipe,
     FilterPipe,
     EditCostComponent,
+    CostCategoryComponent,
+    EditCostCategoryComponent,
 
   ],
   providers: [],
