@@ -65,13 +65,13 @@ A felhasználó számára áttekinthetőbbé válnak bevételei és kiadásai. A
 
 
 A költségekhez tartozó adatok:
-- id (azonosító)
-- name (név)
 - date (dátum)
+- name (név)
 - sum (összeg)
 - description (leírás)
 - costCategoryName (költség kategória neve)
 - costServiceName (költség szolgáltatójának neve)
+- _id (azonosító)
 
 
 **Create:**
@@ -144,9 +144,10 @@ A költségekhez tartozó adatok:
 **Komponens helye:** page/cost-category  
 
 A költség kategóriához tartozó adatok:
-- id (azonosító)
 - costCategoryName (költség kategória neve)
 - description (leírás)
+- active (Aktív)
+- _id (azonosító)
 
 **Create:**
 
@@ -221,10 +222,10 @@ A költség kategóriához tartozó adatok:
 **Komponens helye:** page/cost-service  
 
 A költség szolgáltatókhoz tartozó adatok:
-- id (azonosító)
 - costServiceName(költség szolgáltatójának neve)
 - address (címe)
 - description (leírás)
+- _id (azonosító)
 
 **Create:**
 
