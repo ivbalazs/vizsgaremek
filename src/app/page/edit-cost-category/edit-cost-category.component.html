@@ -13,13 +13,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="costCategoryCategoryName">Költség kategória</label>
-                        <input name="costCategoryCategoryName" [(ngModel)]="costCategory.costCategoryName" type="text"
+                        <label for="costCategoryName">Költség kategória</label>
+                        <input name="costCategoryName" [(ngModel)]="costCategory.costCategoryName" type="text"
                             class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
 
                         <div [hidden]="
-                                        costCategoryForm.controls.costCategoryCategoryName?.valid ||
-                                        costCategoryForm.controls.costCategoryCategoryName?.pristine
+                                        costCategoryForm.controls.costCategoryName?.valid ||
+                                        costCategoryForm.controls.costCategoryName?.pristine
                                         " class="error-message">
                             Érvényes költség kategória nevet kell megadni.
                         </div>

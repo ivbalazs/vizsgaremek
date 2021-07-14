@@ -31,6 +31,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { EditCostComponent } from './page/edit-cost/edit-cost.component';
 import { CostCategoryComponent } from './page/cost-category/cost-category.component';
 import { EditCostCategoryComponent } from './page/edit-cost-category/edit-cost-category.component';
+import { EditCostServiceComponent } from './page/edit-cost-service/edit-cost-service.component';
+import { CostServiceComponent } from './page/cost-service/cost-service.component';
 
 @NgModule({
   imports: [
@@ -61,6 +63,8 @@ import { EditCostCategoryComponent } from './page/edit-cost-category/edit-cost-c
     EditCostComponent,
     CostCategoryComponent,
     EditCostCategoryComponent,
+    EditCostServiceComponent,
+    CostServiceComponent,
 
   ],
   providers: [],

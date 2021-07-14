@@ -9,6 +9,8 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { EditCostComponent } from './page/edit-cost/edit-cost.component';
 import { CostCategoryComponent } from './page/cost-category/cost-category.component';
 import { EditCostCategoryComponent } from './page/edit-cost-category/edit-cost-category.component';
+import { CostServiceComponent } from './page/cost-service/cost-service.component';
+import { EditCostServiceComponent } from './page/edit-cost-service/edit-cost-service.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,15 @@ const routes: Routes = [
     path: 'costcategory/:id',
     component: EditCostCategoryComponent
   },
+  {
+    path: 'costservice',
+    component: CostServiceComponent
+  },
+  {
+    path: 'costservice/:id',
+    component: EditCostServiceComponent
+  },
+
   {
     path: '**',
     component: DashboardComponent,

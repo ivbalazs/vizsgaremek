@@ -1,0 +1,71 @@
+<div class="main-content mt-3 min-vh-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngIf="costService" class="col-6 offset-3">
+                <form #costServiceForm="ngForm" (ngSubmit)="setCostServiceToDatabase(costService)">
+                    <div *ngIf="!updating" class="form-group">
+                        <h2 *ngIf="costService.id==0" class="card-title mb-5">Új költség szolgáltató létrehozása</h2>
+                        <h2 *ngIf="costService.id!=0" class="card-title mb-5">Költség szolgáltató módosítása
+                        </h2>
+                        <label for="costService">#</label>
+                        <input [(ngModel)]="costService.id" id="costService" name="costService" type="number"
+                            class="form-control" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="costServiceName">Költség szolgáltató</label>
+                        <input name="costServiceName" [(ngModel)]="costService.costServiceName" type="text"
+                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí 0-9]+$" required>
+
+                        <div [hidden]="
+                                        costServiceForm.controls.costServiceName?.valid ||
+                                        costServiceForm.controls.costServiceName?.pristine
+                                        " class="error-message">
+                            Érvényes költség szolgáltató nevet kell megadni.
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="address">Cím</label>
+                        <input name="address" [(ngModel)]="costService.address" type="text" class="form-control pl-3"
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ,.0-9]+$" required>
+
+                        <div [hidden]="
+                                        costServiceForm.controls.address?.valid ||
+                                        costServiceForm.controls.address?.pristine
+                                        " class="error-message">
+                            Érvényes címet kell megadni.
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label for="description">Leírás</label>
+                        <input name="description" [(ngModel)]="costService.description" type="text"
+                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ,.0-9-]+$" required>
+
+                        <div [hidden]="
+                                        costServiceForm.controls.description?.valid ||
+                                        costServiceForm.controls.description?.pristine
+                                        " class="error-message">
+                            Érvényes leírást kell megadni.
+                        </div>
+                    </div>
+
+                    <div *ngIf="costServiceForm.invalid" class="alert alert-warning text-center mt-2" role="alert">
+                        Az összes mezőt kötelező megadni!
+                    </div>
+
+                    <button [disabled]="costServiceForm.invalid || updating" type="submit"
+                        class="btn btn-block btn-info mb-5">
+                        <i *ngIf="!updating" class="fa fa-save"></i>
+                        <i *ngIf="updating" class="fa fa-refresh"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

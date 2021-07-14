@@ -101,6 +101,42 @@
       "id": 2,
       "costCategoryName": "Ruházat",
       "description": "ruha"
+    },
+    {
+      "id": 3,
+      "costCategoryName": "Áram számla",
+      "description": "Elmű"
+    },
+    {
+      "id": 4,
+      "costCategoryName": "Autó",
+      "description": "benzin"
+    }
+  ],
+  "costservice": [
+    {
+      "id": 1,
+      "costServiceName": "Aldi",
+      "address": "1118 Budapest, Rétköz utca",
+      "description": "este 11-ig nyitva"
+    },
+    {
+      "id": 2,
+      "costServiceName": "Praktiker",
+      "address": "1222 Budapest, Kőérberki út 22.",
+      "description": "barkács"
+    },
+    {
+      "id": 3,
+      "costServiceName": "Elmű",
+      "address": "1051 Budapest, Fővám tér 5.",
+      "description": "Ügyfélfogadás bejelentkezés online"
+    },
+    {
+      "id": 4,
+      "costServiceName": "MOL",
+      "address": "1131 Budapest, Fő utca 3.",
+      "description": "nem olcsó"
     }
   ]
 }

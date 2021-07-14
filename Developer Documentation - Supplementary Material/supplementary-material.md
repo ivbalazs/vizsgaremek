@@ -212,7 +212,6 @@ A költség kategóriához tartozó adatok:
 ---
 
 **Osztály neve:** cost-service
-
 **Osztály helye:** model/cost-service  
 
 **Service neve:** cost-service   

@@ -12,6 +12,7 @@ export class CostService {
   costApiUrl: string = 'http://localhost:3000/costs';
 
   list$: BehaviorSubject<Cost[]> = new BehaviorSubject<Cost[]>([]);
+  id: string | number;
 
   constructor(
     private http: HttpClient,
