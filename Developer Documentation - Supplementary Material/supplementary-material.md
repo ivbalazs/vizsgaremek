@@ -288,7 +288,6 @@ A költség szolgáltatókhoz tartozó adatok:
 ---
 
 **Osztály neve:** income
-
 **Osztály helye:** model/income  
 
 **Service neve:** income   
@@ -299,7 +298,8 @@ A költség szolgáltatókhoz tartozó adatok:
 
 A bevételhez tartozó adatok:
 - id (azonosító)
-- incomeName (bevétel neve)
+- incomeName (bevétel megnevezése)
+- sum (összeg)
 - date (dátum)
 - description (leírás)
 

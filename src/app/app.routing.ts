@@ -11,6 +11,8 @@ import { CostCategoryComponent } from './page/cost-category/cost-category.compon
 import { EditCostCategoryComponent } from './page/edit-cost-category/edit-cost-category.component';
 import { CostServiceComponent } from './page/cost-service/cost-service.component';
 import { EditCostServiceComponent } from './page/edit-cost-service/edit-cost-service.component';
+import { EditIncomeComponent } from './page/edit-income/edit-income.component';
+import { IncomeComponent } from './page/income/income.component';
 
 const routes: Routes = [
   {
@@ -49,6 +51,14 @@ const routes: Routes = [
   {
     path: 'costservice/:id',
     component: EditCostServiceComponent
+  },
+  {
+    path: 'income',
+    component: IncomeComponent
+  },
+  {
+    path: 'income/:id',
+    component: EditIncomeComponent
   },
 
   {

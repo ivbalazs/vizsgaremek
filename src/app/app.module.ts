@@ -33,6 +33,8 @@ import { CostCategoryComponent } from './page/cost-category/cost-category.compon
 import { EditCostCategoryComponent } from './page/edit-cost-category/edit-cost-category.component';
 import { EditCostServiceComponent } from './page/edit-cost-service/edit-cost-service.component';
 import { CostServiceComponent } from './page/cost-service/cost-service.component';
+import { IncomeComponent } from './page/income/income.component';
+import { EditIncomeComponent } from './page/edit-income/edit-income.component';
 
 @NgModule({
   imports: [
@@ -65,6 +67,8 @@ import { CostServiceComponent } from './page/cost-service/cost-service.component
     EditCostCategoryComponent,
     EditCostServiceComponent,
     CostServiceComponent,
+    IncomeComponent,
+    EditIncomeComponent,
 
   ],
   providers: [],

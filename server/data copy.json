@@ -138,5 +138,28 @@
       "address": "1131 Budapest, Fő utca 3.",
       "description": "nem olcsó"
     }
+  ],
+  "income": [
+    {
+      "date": "2021.03.01",
+      "incomeName": "lakás bérbeadás",
+      "sum": 100000,
+      "description": "1-én utalják",
+      "id": 1
+    },
+    {
+      "date": "2021.01.10",
+      "incomeName": "kamat",
+      "sum": 1000,
+      "description": "10-én fizetik",
+      "id": 2
+    },
+    {
+      "date": "2021.11.10",
+      "incomeName": "fizetés",
+      "sum": 1000000,
+      "description": "10-én utalják",
+      "id": 3
+    }
   ]
 }

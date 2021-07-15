@@ -12,18 +12,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name">Név</label>
-                        <input name="name" [(ngModel)]="cost.name" type="text" class="form-control pl-3"
-                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
-
-                        <div [hidden]="costForm.controls.name?.valid ||
-                                       costForm.controls.name?.pristine
-                            " class="error-message">
-                            Érvényes nevet kell megadni.
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label for="date">Dátum</label>
                         <input name="date" [(ngModel)]="cost.date" type="text" class="form-control pl-3"
                             pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí0-9.-]+$" required>
@@ -33,6 +21,18 @@
                                         costForm.controls.date?.pristine
                                         " class="error-message">
                             Érvényes dátumot kell megadni.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Név</label>
+                        <input name="name" [(ngModel)]="cost.name" type="text" class="form-control pl-3"
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+
+                        <div [hidden]="costForm.controls.name?.valid ||
+                                       costForm.controls.name?.pristine
+                            " class="error-message">
+                            Érvényes nevet kell megadni.
                         </div>
                     </div>
 
