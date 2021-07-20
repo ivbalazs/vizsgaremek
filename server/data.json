@@ -13,7 +13,7 @@
       "id": 2,
       "name": "Zsemle",
       "date": "2021.07.10",
-      "sum": 300,
+      "sum": 200,
       "description": "Kerek zsemle",
       "costCategoryName": "Élelmiszer",
       "costServiceName": "LIDL"
@@ -150,7 +150,7 @@
     {
       "date": "2021.01.10",
       "incomeName": "kamat",
-      "sum": 1000,
+      "sum": 3000,
       "description": "10-én fizetik",
       "id": 2
     },
