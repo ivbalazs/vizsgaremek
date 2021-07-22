@@ -4,9 +4,14 @@
             <div class="d-flex mb-3 col-6 offset-6">
                 <div class="col-md-4">
                     <select [(ngModel)]="phraseKey" class="custom-select">
-                        <option value="">Keresés </option>
-                        <option *ngFor="let key of keyArray" [value]="key">
-                            {{ key }}
+                        <!-- <option value="">Keresés </option> -->
+                        <!-- <option value="date">Dátum</option>
+                        <option value="incomeName">Megnevezés</option>
+                        <option value="sum">Összeg</option>
+                        <option value="description">Leírás</option>
+                        <option value="id">#</option> -->
+                        <option *ngFor="let key of keyArray" [value]="key.en">
+                            {{ key.hu }}
                         </option>
                     </select>
                 </div>

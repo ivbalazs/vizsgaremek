@@ -14,7 +14,16 @@ export class IncomeComponent implements OnInit {
   incomeList$: BehaviorSubject<Income[]> = this.incomeService.list$;
   txt: string = '';
   phraseKey: string = '';
-  keyArray: string[] = Object.keys(new Income());
+  // keyArray: string[] = Object.keys(new Income());
+  keyArray: { 'hu': string, 'en': string }[] = [
+    { 'hu': 'Keresés', 'en': '' },
+    { 'hu': 'Dátum', 'en': 'date' },
+    { 'hu': 'Megnevezés', 'en': 'incomeName' },
+    { 'hu': 'Összeg', 'en': 'sum' },
+    { 'hu': 'Leírás', 'en': 'description' },
+    { 'hu': '#', 'en': 'id' }
+  ];
+
 
   // sorter
   columnKey: string = '';
