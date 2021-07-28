@@ -35,6 +35,14 @@ import { EditCostServiceComponent } from './page/edit-cost-service/edit-cost-ser
 import { CostServiceComponent } from './page/cost-service/cost-service.component';
 import { IncomeComponent } from './page/income/income.component';
 import { EditIncomeComponent } from './page/edit-income/edit-income.component';
+import { HomeComponent } from './page/home/home.component';
+import { LoginComponent } from './page/login/login.component';
+import { UsersComponent } from './page/users/users.component';
+import { UserEditComponent } from './page/user-edit/user-edit.component';
+import { ForbiddenComponent } from './page/forbidden/forbidden.component';
+import { NavComponent } from './page/nav/nav.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptorService } from './service/jwt-interceptor.service';
 
 @NgModule({
   imports: [
@@ -69,9 +77,17 @@ import { EditIncomeComponent } from './page/edit-income/edit-income.component';
     CostServiceComponent,
     IncomeComponent,
     EditIncomeComponent,
+    HomeComponent,
+    LoginComponent,
+    UsersComponent,
+    UserEditComponent,
+    ForbiddenComponent,
+    NavComponent,
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ Az alkalmazás célja, hogy a bevételeink és kiadásaink áttekinthetővé vá
 - A célgépre le kell klónozni az adott GitHub repository tartalmát.
 - Telepíteni kell az alkalmazás függőségeit az `npm i` paranccsal.
 - Ha további fejlesztések szükségesek, akkor telepíteni kell az Angular keretrendszert az `npm i -g @angular/cli` paranccsal.
+- json-server-auth ./server/users.json -r ./server/routes.json
 
 ## **3. Az alkalmazás konfigurálása**
 

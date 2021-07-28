@@ -1,0 +1,28 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "first_name": "Charlie",
+            "last_name": "Firpo",
+            "email": "seyden0@merriam-webster.com",
+            "password": "$2a$10$KKzAQMXlYJSq7VMlCKcJb.cIVpW4J22j482HLbglgpvTarJZUQc1C",
+            "role": "1"
+        },
+        {
+            "id": 2,
+            "first_name": "Finn",
+            "last_name": "Upjohn",
+            "email": "fupjohn1@paypal.com",
+            "password": "$2a$10$xW1vJhe3xczrnTQOZYlaY.DV/UbYal1.lc2d9ip6tw3.6cWv8XoQ.",
+            "role": "2"
+        },
+        {
+            "id": 3,
+            "first_name": "Nickey",
+            "last_name": "Tyt",
+            "email": "ntyt2@psu.edu",
+            "password": "$2a$10$eZMp/S6cJtgOTy94BKQaAun/m.f3eIu8smIpIi2tvQUgGAiwxfDsy",
+            "role": "3"
+        }
+    ]
+}

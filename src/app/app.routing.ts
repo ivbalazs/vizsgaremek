@@ -13,8 +13,33 @@ import { CostServiceComponent } from './page/cost-service/cost-service.component
 import { EditCostServiceComponent } from './page/edit-cost-service/edit-cost-service.component';
 import { EditIncomeComponent } from './page/edit-income/edit-income.component';
 import { IncomeComponent } from './page/income/income.component';
+import { HomeComponent } from './page/home/home.component';
+import { LoginComponent } from './page/login/login.component';
+import { UsersComponent } from './page/users/users.component';
+import { UserEditComponent } from './page/user-edit/user-edit.component';
+import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+  },
+  {
+    path: 'user/edit/:id',
+    component: UserEditComponent,
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent,
+  },
   {
     path: 'dashboard',
     component: DashboardComponent
@@ -61,11 +86,14 @@ const routes: Routes = [
     component: EditIncomeComponent
   },
 
+  // {
+  //   path: '**',
+  //   component: DashboardComponent,
+  // }
   {
     path: '**',
-    component: DashboardComponent,
-  }
-
+    redirectTo: '',
+  },
 
 ];
 
