@@ -1,28 +1,28 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "first_name": "Charlie",
-            "last_name": "Firpo",
-            "email": "seyden0@merriam-webster.com",
-            "password": "$2a$10$KKzAQMXlYJSq7VMlCKcJb.cIVpW4J22j482HLbglgpvTarJZUQc1C",
-            "role": "1"
-        },
-        {
-            "id": 2,
-            "first_name": "Finn",
-            "last_name": "Upjohn",
-            "email": "fupjohn1@paypal.com",
-            "password": "$2a$10$xW1vJhe3xczrnTQOZYlaY.DV/UbYal1.lc2d9ip6tw3.6cWv8XoQ.",
-            "role": "2"
-        },
-        {
-            "id": 3,
-            "first_name": "Nickey",
-            "last_name": "Tyt",
-            "email": "ntyt2@psu.edu",
-            "password": "$2a$10$eZMp/S6cJtgOTy94BKQaAun/m.f3eIu8smIpIi2tvQUgGAiwxfDsy",
-            "role": "3"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "first_name": "User1",
+      "last_name": "Firpo",
+      "email": "user1@gmail.com",
+      "password": "$2a$10$/JZxezQ4BhF1j028gMiobuaJTHgG2JkqzNIFsv1iKqiz5tKt2LmY2",
+      "role": "1"
+    },
+    {
+      "id": 2,
+      "first_name": "User2",
+      "last_name": "Upjohn",
+      "email": "user2@gmail.com",
+      "password": "$2a$10$yKE/S74chjnZ.g7r3pwWW.PasDITAK7aRs1gTfaRn0M7K60XV0GU6",
+      "role": "2"
+    },
+    {
+      "id": 3,
+      "first_name": "User3",
+      "last_name": "Farthing",
+      "email": "user3@gmail.com",
+      "password": "$2a$10$OVqfQ.0nkEyMSVZ/PqsKU.3HzaKZgTYWxo2q3f7nRG4u3qGk4A2mu",
+      "role": "3"
+    }
+  ]
 }
