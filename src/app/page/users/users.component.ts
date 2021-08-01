@@ -14,6 +14,13 @@ export class UsersComponent implements OnInit {
   list$: Observable<User | User[]> = this.userService.get();
   cols: any[] = this.config.userColumns;
 
+  txt: string = '';
+  phraseKey: string = '';
+  // keyArray: string[] = Object.keys(new User());
+  // sorter
+  // columnKey: string = '';
+  // direction: string = '';
+
   constructor(
     private userService: UserService,
     private config: ConfigService,
@@ -28,6 +35,18 @@ export class UsersComponent implements OnInit {
       err => console.error(err)
     );
   }
+  // sorter
+  // onColumnSelect(key: string): void {
+  //   this.swichDirectionValue();
+  //   this.columnKey = key;
+  // }
+
+  // swichDirectionValue(): any {
+  //   if (this.direction === '' || this.direction === 'dsc') {
+  //     return this.direction = 'asc';
+  //   }
+  //   return this.direction = 'dsc';
+  // }
 
 
 }

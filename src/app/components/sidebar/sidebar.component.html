@@ -16,5 +16,27 @@
                 <p>{{menuItem.title}}</p>
             </a>
         </li>
+
+        <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" routerLink="/users">
+                <i class="material-icons">people_alt</i>
+                <p>Felhasználók</p>
+            </a>
+        </li>
+
+        <li *ngIf="!user" routerLinkActive="active" class="nav-item pointer">
+            <a class="nav-link" routerLink="/login">
+                <i class="material-icons">login</i>
+                <p>Bejelentkezés</p>
+            </a>
+        </li>
+
+
+        <li *ngIf="user" routerLinkActive="active" class="nav-item pointer">
+            <a class="nav-link" (click)="onLogout()">
+                <i class="material-icons">logout</i>
+                <p>Kijelentkezés {{ user?.first_name }}</p>
+            </a>
+        </li>
     </ul>
 </div>

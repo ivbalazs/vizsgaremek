@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ConfigService } from 'app/service/config.service';
+import { Subscription } from 'rxjs';
+import { User } from 'app/model/user';
+import { AuthService } from 'app/service/auth.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -20,13 +24,27 @@ export const ROUTES: RouteInfo[] = [
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
   menuItems: any[];
+  //új nav:
+  navigation = this.config.navigation;
+  loginStatus = false;
+  userSub: Subscription;
+  user: User | null = null;
 
-  constructor() { }
+  // új nav:
+  constructor(
+    private config: ConfigService,
+    private auth: AuthService,
+  ) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    //új nav:
+    this.userSub = this.auth.currentUserSubject.subscribe(
+      user => this.user = user
+    );
+
   }
   isMobileMenu() {
     if ($(window).width() > 991) {
@@ -34,4 +52,13 @@ export class SidebarComponent implements OnInit {
     }
     return true;
   };
+  //új nav:
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
+  }
+
+  onLogout() {
+    this.auth.logout();
+  }
+
 }

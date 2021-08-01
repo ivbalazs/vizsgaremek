@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'app/service/auth.service';
 import { Router } from '@angular/router';
-// import { User } from 'src/app/model/user';
 import { NgForm } from '@angular/forms';
 import { User } from 'app/model/user';
 
@@ -27,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(ngForm.value).toPromise().then(
       userResponse => {
         if (this.auth.currentUserValue) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/dashboard']);
         }
       },
       err => {

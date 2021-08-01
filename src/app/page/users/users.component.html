@@ -1,26 +1,57 @@
-<div class="row">
-    <div class="col-12">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th *ngFor="let col of cols">
-                        {{ col.label }}
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of list$ | async">
-                    <td *ngFor="let col of cols">
-                        {{ user[col.key] }}
-                    </td>
-                    <td>
-                        <a class="btn btn-info" routerLink="/user/edit/{{ user.id }}">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="main-content mt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="d-flex mb-3 col-6 offset-6">
+                <div class="col-md-4">
+                    <select [(ngModel)]="phraseKey" class="custom-select">
+                        <option value="">Keresés </option>
+                    </select>
+                </div>
+                <input [(ngModel)]="txt" class="form-control px-1" type="search" placeholder="szöveg"
+                    aria-label="Search" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h2 class="card-title">Felhasználók</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-center">
+
+                                    <th *ngFor="let col of cols">
+                                        {{ col.label }}
+                                    </th>
+
+
+                                    <th>Szerkesztés</th>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let user of list$ | async | filter: txt:phraseKey">
+                                        <td *ngFor="let col of cols" class="text-center">
+                                            {{ user[col.key] }}
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="btn btn-info" routerLink="/user/edit/{{ user.id }}">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
