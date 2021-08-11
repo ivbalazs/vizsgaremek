@@ -12,6 +12,7 @@ const UserSchema = mongoose.Schema({
 }, {
     timestamps: true
 });
+UserSchema.plugin(require('mongoose-bcrypt'));
 
 module.exports = mongoose.model('User', UserSchema);
 

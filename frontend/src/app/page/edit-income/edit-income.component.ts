@@ -32,26 +32,32 @@ export class EditIncomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) =>
-      this.incomeService.get(params.id).subscribe((income) => {
-        this.income = income || new Income();
-      })
-    );
+    this.activatedRoute.params.subscribe((params) => {
+      if (params.id !== '0') {
+        this.incomeService.get(params.id).subscribe((income) => {
+          this.income = income;
+        });
+      }
+    });
     this.chosenIncome._id = this.income._id;
   }
 
-
-
   onFormSubmit(form: NgForm): void {
     this.updating = true;
-    this.incomeService
-      .update(this.income)
-      .subscribe(() => this.router.navigate(['income']));
+    if (!this.income._id) {
+      this.incomeService.create(this.income).subscribe(
+        res => this.router.navigate(['income'])
+      );
+    } else {
+      this.incomeService
+        .update(this.income)
+        .subscribe(() => this.router.navigate(['income']));
+    }
   }
 
   setIncomeToDatabase(income: Income): void {
     this.updating = true;
-    // income._id = Number(income._id);    
+    // income._id = Number(income._id);
     if (income._id === '0') {
       this.incomeService.create(income).subscribe(
         () => {

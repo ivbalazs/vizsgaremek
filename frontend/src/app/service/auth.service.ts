@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'app/model/user';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { ConfigService } from './config.service';
 import { UserService } from './user.service';
 
@@ -31,30 +31,20 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(loginData: User): Observable<{ accessToken: string }> {
-    return this.http.post<{ accessToken: string }>(
+  login(loginData: User): Observable<User | null> {
+    return this.http.post<{ accessToken: string, user: User }>(
       this.loginUrl,
       { email: loginData.email, password: loginData.password }
-    )
-      .pipe(switchMap(response => {
-        if (response.accessToken) {
+    ).pipe(
+      map( response => {
+        if (response.user) {
           this.lastToken = response.accessToken;
-          return this.userService.query(`email=${loginData.email}`);
+          this.currentUserSubject.next(response.user);
+          return response.user;
         }
-        return of(null);
-      }))
-      .pipe(
-        tap(user => {
-          if (!user) {
-            localStorage.removeItem(this.storageName);
-            this.currentUserSubject.next(null);
-          } else {
-            user[0].token = this.lastToken;
-            localStorage.setItem(this.storageName, JSON.stringify(user[0]));
-            this.currentUserSubject.next(user[0]);
-          }
-        })
-      );
+        return null;
+      })
+    );
   }
 
   logout() {

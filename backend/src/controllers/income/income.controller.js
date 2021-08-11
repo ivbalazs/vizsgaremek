@@ -6,6 +6,7 @@ const incomeService = require('./income.service');
 
 // Create a new income
 exports.create = (req, res, next) => {
+    console.log('------ID: ', req.body);
     const validationErrors = new Income(req.body).validateSync();
     if (validationErrors) {
         return next(
