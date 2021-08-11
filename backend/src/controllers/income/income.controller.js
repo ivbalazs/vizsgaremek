@@ -47,8 +47,8 @@ exports.update = (req, res, next) => {
     }
 
     return incomeService.update(req.params.id, req.body)
-        .then(car => {
-            res.json(car);
+        .then(income => {
+            res.json(income);
         })
         .catch(err => {
             next(new createError.InternalServerError(err.message));

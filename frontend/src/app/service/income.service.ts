@@ -34,7 +34,8 @@ export class IncomeService {
   }
 
   create(income: Income): Observable<Income> {
-    return this.http.post<Income>(this.incomeApiUrl, income);
+    const postData = { ...income, _id: null };
+    return this.http.post<Income>(this.incomeApiUrl, postData);
   }
 
   remove(_id: number | string): void {

@@ -15,10 +15,14 @@ export class ConfigService {
 
   userColumns: { key: string, label: string }[] = [
     { key: 'id', label: '#' },
-    { key: 'first_name', label: 'Keresztnév' },
-    { key: 'last_name', label: 'Vezetéknév' },
+    { key: 'name', label: 'Név' },
     { key: 'email', label: 'E-mail' },
     { key: 'role', label: 'Jogosultság' },
+    // { key: 'id', label: '#' },
+    // { key: 'first_name', label: 'Keresztnév' },
+    // { key: 'last_name', label: 'Vezetéknév' },
+    // { key: 'email', label: 'E-mail' },
+    // { key: 'role', label: 'Jogosultság' },
   ];
 
 

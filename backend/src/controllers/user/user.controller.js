@@ -1,24 +1,19 @@
 const express = require('express');
 const createError = require('http-errors');
 
+const User = require('../../models/user.model');
 const userService = require('./user.service');
 
-// Create a new user.
+// Create a new user
 exports.create = (req, res, next) => {
-    const { first_name, last_name, email } = req.body;
-    if (!email) {
+    const validationErrors = new User(req.body).validateSync();
+    if (validationErrors) {
         return next(
-            new createError.BadRequest("Missing properties!")
+            new createError.BadRequest(validationErrors)
         );
     }
 
-    const newUser = {
-        firstName: first_name || '',
-        lastName: last_name || '',
-        email: email
-    };
-
-    return userService.create(newUser)
+    return userService.create(req.body)
         .then(cp => {
             res.status(201);
             res.json(cp);
@@ -44,22 +39,16 @@ exports.findOne = (req, res, next) => {
 };
 
 exports.update = (req, res, next) => {
-    const id = req.params.id;
-    const { first_name, last_name, email } = req.body;
-    if (!email) {
+    const validationErrors = new User(req.body).validateSync();
+    if (validationErrors) {
         return next(
-            new createError.BadRequest("Missing properties!")
+            new createError.BadRequest(validationErrors)
         );
     }
 
-    // const newUser = {
-    //     firstName: first_name || '',
-    //     lastName: last_name || '',
-    //     email: email
-    // };
-    return userService.update(req.params.id, update)
-        .then(person => {
-            res.json(person);
+    return userService.update(req.params.id, req.body)
+        .then(user => {
+            res.json(user);
         })
         .catch(err => {
             next(new createError.InternalServerError(err.message));

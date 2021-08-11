@@ -2,7 +2,8 @@
     <div class="container-fluid">
         <div class="row">
             <div *ngIf="income" class="col-6 offset-3">
-                <form #incomeForm="ngForm" (ngSubmit)="setIncomeToDatabase(income)">
+                <!-- <form #incomeForm="ngForm" (ngSubmit)="setIncomeToDatabase(income)"> -->
+                <form #incomeForm="ngForm" (ngSubmit)="onFormSubmit(incomeForm)">
                     <div *ngIf="!updating" class="form-group">
                         <h2 *ngIf="income._id==0" class="card-title mb-5">Új bevétel létrehozása</h2>
                         <h2 *ngIf="income._id!=0" class="card-title mb-5">Bevétel módosítása
