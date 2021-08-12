@@ -12,7 +12,7 @@ export class CostService {
   costApiUrl: string = 'http://localhost:3000/costs';
 
   list$: BehaviorSubject<Cost[]> = new BehaviorSubject<Cost[]>([]);
-  id: string | number;
+  _id: string | number;
 
   constructor(
     private http: HttpClient,
@@ -22,24 +22,25 @@ export class CostService {
     this.http.get<Cost[]>(this.costApiUrl).subscribe(costs => this.list$.next(costs));
   }
 
-  get(id: number | string): Observable<Cost> {
-    id = parseInt(('' + id), 10);
-    return this.http.get<Cost>(`${this.costApiUrl}/${id}`);
+  get(_id: number | string): Observable<Cost> {
+    // _id = parseInt(('' + _id), 10);
+    return this.http.get<Cost>(`${this.costApiUrl}/${_id}`);
   }
 
   update(cost: Cost): Observable<Cost> {
     return this.http
-      .patch<Cost>(`${this.costApiUrl}/${cost.id}`, cost)
+      .patch<Cost>(`${this.costApiUrl}/${cost._id}`, cost)
       .pipe(tap(() => this.getAll()));
   }
 
   create(cost: Cost): Observable<Cost> {
-    return this.http.post<Cost>(this.costApiUrl, cost);
+    const postData = { ...cost, _id: null };
+    return this.http.post<Cost>(this.costApiUrl, postData);
   }
 
-  remove(id: number | string): void {
-    id = parseInt(('' + id), 10);
-    this.http.delete<Cost>(`${this.costApiUrl}/${id}`).subscribe(
+  remove(_id: number | string): void {
+    // _id = parseInt(('' + _id), 10);
+    this.http.delete<Cost>(`${this.costApiUrl}/${_id}`).subscribe(
       () => this.getAll()
     );
   }

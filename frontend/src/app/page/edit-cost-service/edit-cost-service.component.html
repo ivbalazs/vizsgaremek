@@ -2,13 +2,14 @@
     <div class="container-fluid">
         <div class="row">
             <div *ngIf="costService" class="col-6 offset-3">
-                <form #costServiceForm="ngForm" (ngSubmit)="setCostServiceToDatabase(costService)">
+                <!-- <form #costServiceForm="ngForm" (ngSubmit)="setCostServiceToDatabase(costService)"> -->
+                <form #costServiceForm="ngForm" (ngSubmit)="onFormSubmit(costServiceForm)">
                     <div *ngIf="!updating" class="form-group">
-                        <h2 *ngIf="costService.id==0" class="card-title mb-5">Új költség szolgáltató létrehozása</h2>
-                        <h2 *ngIf="costService.id!=0" class="card-title mb-5">Költség szolgáltató módosítása
+                        <h2 *ngIf="costService._id==0" class="card-title mb-5">Új költség szolgáltató létrehozása</h2>
+                        <h2 *ngIf="costService._id!=0" class="card-title mb-5">Költség szolgáltató módosítása
                         </h2>
                         <label for="costService">#</label>
-                        <input [(ngModel)]="costService.id" id="costService" name="costService" type="number"
+                        <input [(ngModel)]="costService._id" id="costService" name="costService" type="number"
                             class="form-control" disabled>
                     </div>
 

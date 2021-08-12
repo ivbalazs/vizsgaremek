@@ -2,7 +2,8 @@ export class CostService {
     costServiceName: string = '';
     address: string = '';
     description: string = '';
-    id: number = 0;
+    _id: string = '';
+    // id: number = 0;
 
 }
 

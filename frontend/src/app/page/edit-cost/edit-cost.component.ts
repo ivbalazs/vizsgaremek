@@ -32,27 +32,34 @@ export class EditCostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) =>
-      this.costService.get(params.id).subscribe((cost) => {
-        this.cost = cost || new Cost();
-      })
-    );
-    this.chosenCost.id = this.cost.id;
+    this.activatedRoute.params.subscribe((params) => {
+      if (params.id !== '0') {
+        this.costService.get(params.id).subscribe((cost) => {
+          this.cost = cost;
+        });
+      }
+    });
+    this.chosenCost._id = this.cost._id;
   }
-
 
 
   onFormSubmit(form: NgForm): void {
     this.updating = true;
-    this.costService
-      .update(this.cost)
-      .subscribe(() => this.router.navigate(['cost']));
+    if (!this.cost._id) {
+      this.costService.create(this.cost).subscribe(
+        res => this.router.navigate(['cost'])
+      );
+    } else {
+      this.costService
+        .update(this.cost)
+        .subscribe(() => this.router.navigate(['cost']));
+    }
   }
 
   setCostToDatabase(cost: Cost): void {
     this.updating = true;
-    cost.id = Number(cost.id);
-    if (cost.id === 0) {
+    // cost._id = Number(cost._id);
+    if (cost._id === '0') {
       this.costService.create(cost).subscribe(
         () => {
           this.toastr.success('Sikeresen módosítottad a költséget!', 'Módosítva!', {

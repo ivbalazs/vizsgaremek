@@ -2,12 +2,13 @@
     <div class="container-fluid">
         <div class="row">
             <div *ngIf="cost" class="col-6 offset-3">
-                <form #costForm="ngForm" (ngSubmit)="setCostToDatabase(cost)">
+                <!-- <form #costForm="ngForm" (ngSubmit)="setCostToDatabase(cost)"> -->
+                <form #costForm="ngForm" (ngSubmit)="onFormSubmit(costForm)">
                     <div *ngIf="!updating" class="form-group">
-                        <h2 *ngIf="cost.id==0" class="card-title mb-5">Új költség létrehozása</h2>
-                        <h2 *ngIf="cost.id!=0" class="card-title mb-5">Költség módosítása</h2>
+                        <h2 *ngIf="cost._id==0" class="card-title mb-5">Új költség létrehozása</h2>
+                        <h2 *ngIf="cost._id!=0" class="card-title mb-5">Költség módosítása</h2>
                         <label for="cost">#</label>
-                        <input [(ngModel)]="cost.id" id="cost" name="cost" type="number" class="form-control" disabled>
+                        <input [(ngModel)]="cost._id" id="cost" name="cost" type="number" class="form-control" disabled>
                     </div>
 
                     <div class="form-group">

@@ -44,6 +44,9 @@ app.use('/person', authenticateJwt, require('./controllers/person/person.routes'
 //app.use('/post', authenticateJwt, adminOnly, require('./controllers/post/post.routes'));
 app.use('/users', require('./controllers/user/user.routes'));
 app.use('/income', require('./controllers/income/income.routes'));
+app.use('/costs', require('./controllers/cost/cost.routes'));
+app.use('/costcategories', require('./controllers/costcategory/costcategory.routes'));
+app.use('/costservice', require('./controllers/costservice/costservice.routes'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use((err, req, res, next) => {

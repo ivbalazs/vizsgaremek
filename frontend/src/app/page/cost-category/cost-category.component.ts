@@ -44,7 +44,7 @@ export class CostCategoryComponent implements OnInit {
 
 
   onRemove(costCategory: CostCategory): void {
-    of(this.costCategoryService.remove(costCategory.id)).subscribe(
+    of(this.costCategoryService.remove(costCategory._id)).subscribe(
       () => {
         this.toastr.error('Sikeresen törölted a költség kategóriát!', 'Törölve!', { timeOut: 3000 });
         this.costCategoryService.getAll();

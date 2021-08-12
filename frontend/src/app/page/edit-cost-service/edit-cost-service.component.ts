@@ -31,27 +31,35 @@ export class EditCostServiceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) =>
-      this.costServiceService.get(params.id).subscribe((costService) => {
-        this.costService = costService || new CostService();
-      })
-    );
-    this.chosenCostService.id = this.costService.id;
+    this.activatedRoute.params.subscribe((params) => {
+      if (params.id !== '0') {
+        this.costServiceService.get(params.id).subscribe((costService) => {
+          this.costService = costService;
+        });
+      }
+    });
+    this.chosenCostService._id = this.costService._id;
   }
-
 
 
   onFormSubmit(form: NgForm): void {
     this.updating = true;
-    this.costServiceService
-      .update(this.costService)
-      .subscribe(() => this.router.navigate(['costservice']));
+    if (!this.costService._id) {
+      this.costServiceService.create(this.costService).subscribe(
+        res => this.router.navigate(['costservice'])
+      );
+    } else {
+      this.costServiceService
+        .update(this.costService)
+        .subscribe(() => this.router.navigate(['costservice']));
+    }
   }
+
 
   setCostServiceToDatabase(costService: CostService): void {
     this.updating = true;
-    costService.id = Number(costService.id);
-    if (costService.id === 0) {
+    // costService._id = Number(costService._id);
+    if (costService._id === '0') {
       this.costServiceService.create(costService).subscribe(
         () => {
           this.toastr.success('Sikeresen módosítottad a költség szolgáltatót!', 'Módosítva!', {

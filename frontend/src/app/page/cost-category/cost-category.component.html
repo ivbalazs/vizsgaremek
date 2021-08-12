@@ -58,16 +58,16 @@
                                                 style="cursor: pointer">keyboard_arrow_up</i>
                                         </div>
                                     </th>
-                                    <th (click)="onColumnSelect('id')">
+                                    <th (click)="onColumnSelect('_id')">
                                         #
                                         <div>
-                                            <i *ngIf="columnKey !== 'id'"
+                                            <i *ngIf="columnKey !== '_id'"
                                                 class="material-icons align-text-bottom text-info"
                                                 style="cursor: pointer">indeterminate_check_box</i>
-                                            <i *ngIf="columnKey === 'id' && direction === 'asc'"
+                                            <i *ngIf="columnKey === '_id' && direction === 'asc'"
                                                 class="material-icons align-text-top"
                                                 style="cursor: pointer">keyboard_arrow_down</i>
-                                            <i *ngIf="columnKey === 'id' && direction === 'dsc'"
+                                            <i *ngIf="columnKey === '_id' && direction === 'dsc'"
                                                 class="material-icons align-text-bottom"
                                                 style="cursor: pointer">keyboard_arrow_up</i>
                                         </div>
@@ -86,10 +86,10 @@
                                     ">
                                         <td class="text-center">{{ costCategory.costCategoryName }}</td>
                                         <td class="text-center">{{ costCategory.description }}</td>
-                                        <td class="text-center">{{ costCategory.id }}</td>
+                                        <td class="text-center">{{ costCategory._id }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <button [routerLink]="[costCategory.id]" class="btn btn-success">
+                                                <button [routerLink]="[costCategory._id]" class="btn btn-success">
                                                     <i class="material-icons">edit</i>
                                                 </button>
                                                 <button class="btn btn-danger" (click)="onRemove(costCategory)">

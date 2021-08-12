@@ -114,16 +114,16 @@
                                                 style="cursor: pointer">keyboard_arrow_up</i>
                                         </div>
                                     </th>
-                                    <th (click)="onColumnSelect('id')">
+                                    <th (click)="onColumnSelect('_id')">
                                         #
                                         <div>
-                                            <i *ngIf="columnKey !== 'id'"
+                                            <i *ngIf="columnKey !== '_id'"
                                                 class="material-icons align-text-bottom text-info"
                                                 style="cursor: pointer">indeterminate_check_box</i>
-                                            <i *ngIf="columnKey === 'id' && direction === 'asc'"
+                                            <i *ngIf="columnKey === '_id' && direction === 'asc'"
                                                 class="material-icons align-text-top"
                                                 style="cursor: pointer">keyboard_arrow_down</i>
-                                            <i *ngIf="columnKey === 'id' && direction === 'dsc'"
+                                            <i *ngIf="columnKey === '_id' && direction === 'dsc'"
                                                 class="material-icons align-text-bottom"
                                                 style="cursor: pointer">keyboard_arrow_up</i>
                                         </div>
@@ -146,10 +146,10 @@
                                         <td class="text-center">{{ cost.description }}</td>
                                         <td class="text-center">{{ cost.costCategoryName }}</td>
                                         <td class="text-center">{{ cost.costServiceName }}</td>
-                                        <td class="text-center">{{ cost.id }}</td>
+                                        <td class="text-center">{{ cost._id }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <button [routerLink]="[cost.id]" class="btn btn-success">
+                                                <button [routerLink]="[cost._id]" class="btn btn-success">
                                                     <i class="material-icons">edit</i>
                                                 </button>
                                                 <button class="btn btn-danger" (click)="onRemove(cost)">

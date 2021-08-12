@@ -31,27 +31,35 @@ export class EditCostCategoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) =>
-      this.costCategoryService.get(params.id).subscribe((costCategory) => {
-        this.costCategory = costCategory || new CostCategory();
-      })
-    );
-    this.chosenCostCategory.id = this.costCategory.id;
+    this.activatedRoute.params.subscribe((params) => {
+      if (params.id !== '0') {
+        this.costCategoryService.get(params.id).subscribe((costCategory) => {
+          this.costCategory = costCategory;
+        });
+      }
+    });
+    this.chosenCostCategory._id = this.costCategory._id;
   }
 
 
 
   onFormSubmit(form: NgForm): void {
     this.updating = true;
-    this.costCategoryService
-      .update(this.costCategory)
-      .subscribe(() => this.router.navigate(['costcategory']));
+    if (!this.costCategory._id) {
+      this.costCategoryService.create(this.costCategory).subscribe(
+        res => this.router.navigate(['costcategory'])
+      );
+    } else {
+      this.costCategoryService
+        .update(this.costCategory)
+        .subscribe(() => this.router.navigate(['costcategory']));
+    }
   }
 
   setCostCategoryToDatabase(costCategory: CostCategory): void {
     this.updating = true;
-    costCategory.id = Number(costCategory.id);
-    if (costCategory.id === 0) {
+    // costCategory._id = Number(costCategory._id);
+    if (costCategory._id === '0') {
       this.costCategoryService.create(costCategory).subscribe(
         () => {
           this.toastr.success('Sikeresen módosítottad a költség kategóriát!', 'Módosítva!', {

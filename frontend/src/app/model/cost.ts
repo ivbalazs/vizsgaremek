@@ -1,6 +1,6 @@
 export class Cost {
-
-    id: number = 0;
+    _id: string = '';
+    // id: number = 0;
     name: string = '';
     date: string = '';
     sum: number = 0;
