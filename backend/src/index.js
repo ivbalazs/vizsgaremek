@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 // Database connection.
 if (!config.has('database')) {
-    logger.error('Ne database config found.');
+    logger.error('No database config found.');
     process.exit();
 }
 

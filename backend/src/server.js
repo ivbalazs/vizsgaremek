@@ -19,7 +19,10 @@ const swaggerDocument = YAML.load('./docs/swager.yaml');
 
 const { host } = config.get('database');
 mongoose
-    .connect(`mongodb://${host}`, {
+    // MongoDB lokálisan:
+    // .connect(`mongodb://${host}`, {
+    // MongoDB Atlas:
+    .connect(host, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
