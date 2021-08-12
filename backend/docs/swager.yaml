@@ -1,25 +1,25 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Sample Blog API
-  description: A sample blog API to illustrate REST API concepts
+  title: FullStack Developers Exam API
+  description: An API for the FullStack Developers Exam 
 servers:
   - url: http://localhost:3000
 paths:
-  /person:
+  /costs:
     get:
-      description: Returns a list of persons
+      description: Returns a list of costs
       security:
         - bearerAuth: []
       responses:
         '200':
-          description: List of persons returned successfully
+          description: List of costs returned successfully
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Person'
+                  $ref: '#/components/schemas/Cost'
         '500':
           description: Internal server error
           content:
@@ -27,24 +27,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
     post:
-      description: Creates a new person
+      description: Creates a new cost
       security:
-        - bearerAuth: []
+        - bearerAuth: []      
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Person'
+              $ref: '#/components/schemas/Cost'
       responses:
         '201':
-          description: Person has been created successfully
+          description: Cost has been created successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Person'
+                $ref: '#/components/schemas/Cost'
         '400':
-          description: Invalid request
+          description: Invalid request when the post data is invalid
           content:
             application/json:
               schema:
@@ -55,26 +55,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /person/{person_id}:
+  /costs/{_id}:
     get:
-      description: Returns the person with the given ID
+      description: Get a cost
       security:
         - bearerAuth: []
       parameters:
-        - name: person_id
-          in: path
+        - in: path
+          name: _id
           required: true
-          schema:
+          schema: 
             type: string
       responses:
         '200':
-          description: Person data returned successfully
+          description: Returns a Cost
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Person'
+                type: object
+                $ref: '#/components/schemas/Cost'
         '404':
-          description: Person with the give ID was not found
+          description: Cost based on id is doesn't exist
           content:
             application/json:
               schema:
@@ -85,8 +86,93 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-    put:
-      description: Update a person
+    patch:
+      description: Updates a cost
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cost'
+      responses:
+        '200':
+          description: Cost has been updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cost'
+        '400':
+          description: Invalid request when the post data is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      description: Removes a cost
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Cost has been deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {}
+        '404':
+          description: Cost based on id is doesn't exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
+  /income:
+    get:
+      description: Returns a list of incomes
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of incomes returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Income'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Creates a new income
       security:
         - bearerAuth: []
       requestBody:
@@ -94,16 +180,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Person'
+              $ref: '#/components/schemas/Income'
       responses:
         '201':
-          description: Person has been updated successfully
+          description: Income has been created successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Person'
+                $ref: '#/components/schemas/Income'
         '400':
-          description: Invalid request
+          description: Invalid request when the post data is invalid
           content:
             application/json:
               schema:
@@ -114,43 +200,460 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /income/{_id}:
+    get:
+      description: Get a income
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Returns a Income
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Income'
+        '404':
+          description: Income based on id is doesn't exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      description: Updates a income
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Income'
+      responses:
+        '200':
+          description: Income has been updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Income'
+        '400':
+          description: Invalid request when the post data is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      description: Removes a income
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Income has been deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {}
+        '404':
+          description: Income based on id is doesn't exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /costcategories:
+    get:
+      description: Returns a list of cost categories
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of cost categories returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostCategory'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Creates a new cost category
+      security:
+        - bearerAuth: []      
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostCategory'
+      responses:
+        '201':
+          description: Cost category has been created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCategory'
+        '400':
+          description: Invalid request when the post data is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /costcategories/{_id}:
+    get:
+      description: Get a cost category
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Returns a Cost Category
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/CostCategory'
+        '404':
+          description: Cost category based on id is doesn't exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      description: Updates a cost category
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostCategory'
+      responses:
+        '200':
+          description: Cost category has been updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCategory'
+        '400':
+          description: Invalid request when the post data is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      description: Removes a cost category
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Cost category has been deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {}
+        '404':
+          description: Cost category based on id is doesn't exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
+  /costservice:
+    get:
+      description: Returns a list of cost services
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of cost services returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostService'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Creates a new cost service
+      security:
+        - bearerAuth: []      
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostService'
+      responses:
+        '201':
+          description: Cost service has been created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostService'
+        '400':
+          description: Invalid request when the post data is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /costservice/{_id}:
+    get:
+      description: Get a cost service
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Returns a Cost Service
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/CostService'
+        '404':
+          description: Cost service based on id is doesn't exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      description: Updates a cost service
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostService'
+      responses:
+        '200':
+          description: Cost service has been updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostService'
+        '400':
+          description: Invalid request when the post data is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      description: Removes a cost service
+      security:
+        - bearerAuth: []      
+      parameters:
+        - in: path
+          name: _id
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Cost service has been deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {}
+        '404':
+          description: Cost service based on id is doesn't exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
 components:
   securitySchemes:
-    bearerAuth:            # arbitrary name for the security scheme
+    bearerAuth:            
       type: http
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    Person:
+    Cost:
       type: object
       required:
-        - first_name
-        - last_name
-        - email
+        - name
+        - date
+        - sum
+        - description
+        - costCategoryName
+        - costServiceName
       properties:
-        first_name:
+        name:
           type: string
-        last_name:
+        date:
           type: string
-        email:
+        sum:
+          type: number
+        description:
           type: string
-        posts: 
-          type: array
-          items:
-            $ref: '#/components/schemas/Post'
-    Post:
+        costCategoryName:
+          type: string
+        costServiceName:
+          type: string
+    Income:
       type: object
       required:
-        - title
-        - body
+        - date
+        - incomeName
+        - sum
+        - description
       properties:
-        title:
+        date:
           type: string
-        body:
+        incomeName:
           type: string
-        author:
-          type: object
-          $ref: '#/components/schemas/Person'
+        sum:
+          type: number
+        description:
+          type: string
+    CostCategory:
+      type: object
+      required:
+        - costCategoryName
+        - description
+      properties:
+        costCategoryName:
+          type: string
+        description:
+          type: string
+    CostService:
+      type: object
+      required:
+        - costServiceName
+        - address
+        - description
+      properties:
+        costCategoryName:
+          type: string
+        address:
+          type: string
+        description:
+          type: string
     Error:
       type: object
       required:
