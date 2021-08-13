@@ -34,18 +34,18 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
-    // canActivate: [AuthGuardService, RoleGuardService],
-    // data: {
-    //   expectedRole: 2,
-    // }
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 2,
+    }
   },
   {
     path: 'user/edit/:id',
     component: UserEditComponent,
-    // canActivate: [AuthGuardService, RoleGuardService],
-    // data: {
-    //   expectedRole: 3,
-    // }
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 3,
+    }
   },
   {
     path: 'forbidden',
@@ -68,18 +68,18 @@ const routes: Routes = [
   {
     path: 'cost',
     component: CostComponent,
-    // canActivate: [AuthGuardService, RoleGuardService],
-    // data: {
-    //   expectedRole: 2,
-    // }
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 2,
+    }
   },
   {
     path: 'cost/:id',
     component: EditCostComponent,
-    // canActivate: [AuthGuardService, RoleGuardService],
-    // data: {
-    //   expectedRole: 3,
-    // }
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 3,
+    }
   },
   {
     path: 'costcategory',
@@ -116,18 +116,18 @@ const routes: Routes = [
   {
     path: 'income',
     component: IncomeComponent,
-    // canActivate: [AuthGuardService, RoleGuardService],
-    // data: {
-    //   expectedRole: 2,
-    // }
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 2,
+    }
   },
   {
     path: 'income/:id',
     component: EditIncomeComponent,
-    // canActivate: [AuthGuardService, RoleGuardService],
-    // data: {
-    //   expectedRole: 3,
-    // }
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 3,
+    }
   },
 
   // {

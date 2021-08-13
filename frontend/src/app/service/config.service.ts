@@ -14,7 +14,7 @@ export class ConfigService {
   ];
 
   userColumns: { key: string, label: string }[] = [
-    { key: 'id', label: '#' },
+    { key: '_id', label: '#' },
     { key: 'name', label: 'Név' },
     { key: 'email', label: 'E-mail' },
     { key: 'role', label: 'Jogosultság' },

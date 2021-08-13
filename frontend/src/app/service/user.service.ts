@@ -1,37 +1,49 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from './config.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../model/user';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  entity = 'users';
+  userApiUrl: string = 'http://localhost:3000/users';
+
+  list$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  _id: string | number;
+
 
   constructor(
     private http: HttpClient,
-    private config: ConfigService,
   ) { }
 
-  get(id?: string | number): Observable<User | User[]> {
-    let url = `${this.config.apiUrl}${this.entity}`;
-    if (id) {
-      url += `/${id}`;
-    }
-
-    return this.http.get<User[]>(url);
+  getAll(): void {
+    this.http.get<User[]>(this.userApiUrl).subscribe(users => this.list$.next(users));
   }
 
-  query(queryString: string): Observable<User | User[]> {
-    const url = `${this.config.apiUrl}${this.entity}?${queryString}`;
-    return this.http.get<User[]>(url);
+  get(_id: number | string): Observable<User> {
+    return this.http.get<User>(`${this.userApiUrl}/${_id}`);
   }
 
   update(user: User): Observable<User> {
-    const url = `${this.config.apiUrl}${this.entity}/${user.id}`;
-    return this.http.put<User>(url, user);
+    return this.http
+      .patch<User>(`${this.userApiUrl}/${user._id}`, user)
+      .pipe(tap(() => this.getAll()));
   }
+
+  create(user: User): Observable<User> {
+    const postData = { ...user, _id: null };
+    return this.http.post<User>(this.userApiUrl, postData);
+  }
+
+  remove(_id: number | string): void {
+    this.http.delete<User>(`${this.userApiUrl}/${_id}`).subscribe(
+      () => this.getAll()
+    );
+  }
+
+
 }

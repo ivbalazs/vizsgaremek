@@ -2,23 +2,29 @@
     <div class="col-12 col-md-6 offset-md-3">
         <form *ngIf="user" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="form">
             <h2 class="card-title my-5">Felhasználó módosítása</h2>
-            <div class="form-group"><label for="">Keresztnév</label><input type="text" [(ngModel)]="user.first_name"
-                    name="first_name" class="form-control"></div>
-            <div class="form-group"><label for="">Vezetéknév</label><input type="text" [(ngModel)]="user.last_name"
-                    name="last_name" class="form-control"></div>
-            <div class="form-group"><label for="">E-mail</label><input type="email" [(ngModel)]="user.email"
-                    name="email" class="form-control"></div>
-            <div class="form-group"><label for="">Jelszó</label><input type="password" [(ngModel)]="user.password"
-                    name="password" class="form-control"></div>
-            <div class="form-group"><label for="">Jogosultság</label>
+            <div class="form-group">
+                <label for="name">Név</label>
+                <input type="text" [(ngModel)]="user.name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" [(ngModel)]="user.email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Jelszó</label>
+                <input type="password" [(ngModel)]="user.password" name="password" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Jogosultság</label>
                 <select type="text" [(ngModel)]="user.role" name="role" class="form-control">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-block btn-info mb-5">
+            <button [disabled]="userForm.invalid" type=" submit" class="btn btn-block btn-info mb-5">
                 <i class="fa fa-save"></i>
             </button>
         </form>
     </div>
+</div>

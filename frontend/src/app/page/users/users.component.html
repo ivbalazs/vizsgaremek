@@ -11,7 +11,6 @@
                     aria-label="Search" />
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -22,30 +21,24 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="text-center">
-
-                                    <th *ngFor="let col of cols">
-                                        {{ col.label }}
-                                    </th>
-
-
+                                    <th>Név</th>
+                                    <th>E-mail</th>
+                                    <th>Jelszó</th>
+                                    <th>Jogosultság</th>
                                     <th>Szerkesztés</th>
-
                                 </thead>
                                 <tbody>
-
-                                    <tr *ngFor="let user of list$ | async | filter: txt:phraseKey">
-                                        <td *ngFor="let col of cols" class="text-center">
-                                            {{ user[col.key] }}
-                                        </td>
+                                    <tr *ngFor="let user of userList$ | async | filter: txt:phraseKey">
+                                        <td class="text-center">{{ user.name }}</td>
+                                        <td class="text-center">{{ user.email }}</td>
+                                        <td class="text-center">{{ user.password }}</td>
+                                        <td class="text-center">{{ user.role }}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-info" routerLink="/user/edit/{{ user.id }}">
+                                            <a class="btn btn-info" routerLink="/user/edit/{{ user._id }}">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                         </td>
                                     </tr>
-
-
-
                                 </tbody>
                             </table>
                         </div>

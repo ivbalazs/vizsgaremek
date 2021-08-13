@@ -34,7 +34,7 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit(ngForm: NgForm): void {
-    const putObject = Object.assign({ id: this.user.id }, ngForm.value);
+    const putObject = Object.assign({ _id: this.user._id }, ngForm.value);
     this.userService.update(putObject)
       .toPromise().then(
         user => history.back(),

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { UserService } from 'app/service/user.service';
 import { ConfigService } from 'app/service/config.service';
 import { User } from 'app/model/user';
@@ -11,15 +11,10 @@ import { User } from 'app/model/user';
 })
 export class UsersComponent implements OnInit {
 
-  list$: Observable<User | User[]> = this.userService.get();
-  cols: any[] = this.config.userColumns;
+  userList$: BehaviorSubject<User[]> = this.userService.list$;
 
   txt: string = '';
   phraseKey: string = '';
-  // keyArray: string[] = Object.keys(new User());
-  // sorter
-  // columnKey: string = '';
-  // direction: string = '';
 
   constructor(
     private userService: UserService,
@@ -27,6 +22,7 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userService.getAll();
   }
 
   update(user: User): void {
@@ -35,18 +31,5 @@ export class UsersComponent implements OnInit {
       err => console.error(err)
     );
   }
-  // sorter
-  // onColumnSelect(key: string): void {
-  //   this.swichDirectionValue();
-  //   this.columnKey = key;
-  // }
-
-  // swichDirectionValue(): any {
-  //   if (this.direction === '' || this.direction === 'dsc') {
-  //     return this.direction = 'asc';
-  //   }
-  //   return this.direction = 'dsc';
-  // }
-
 
 }
