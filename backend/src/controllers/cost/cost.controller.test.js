@@ -1,32 +1,27 @@
 const { mockRequest, mockResponse } = require('jest-mock-req-res');
 const createError = require('http-errors');
 
-const userController = require('./user.controller');
-const userService = require('./user.service');
+const costController = require('./cost.controller');
+const costService = require('./cost.service');
 
-jest.mock('./user.service');
+jest.mock('./cost.service');
 
-describe("user controler", () => {
+describe("cost controler", () => {
     const mockData = [{
         "_id": 1,
-        "email": "admin@gmail.com",
-        "password": "admin_pw",
-        "role": 3,
-        "name": "Admin"
-    },
-    {
-        "_id": 2,
-        "email": "user@gmail.com",
-        "password": "user_pw",
-        "role": 2,
-        "name": "User"
+        "date": "2021.08.10.",
+        "name": "Bevásárlás",
+        "sum": 50000,
+        "description": "Heti nagy bevásárlás",
+        "costCategory": "Élelmiszer",
+        "costService": "LIDL"
     }];
 
     let response;
     const nextFunction = jest.fn();
 
     beforeEach(() => {
-        userService.__setMockData(mockData);
+        costService.__setMockData(mockData);
         response = mockResponse();
     });
 
@@ -39,9 +34,9 @@ describe("user controler", () => {
             }
         });
 
-        return userController.findOne(request, response, nextFunction)
+        return costController.findOne(request, response, nextFunction)
             .then(() => {
-                expect(userService.findOne).toBeCalledWith(USER_ID);
+                expect(costService.findOne).toBeCalledWith(USER_ID);
                 expect(response.json).toBeCalledWith(
                     mockData.find(p => p._id === USER_ID)
                 );

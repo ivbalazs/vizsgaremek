@@ -1,8 +1,13 @@
 {
     "database": {
-        //Józsi felhasználóneve és jelszava:
-        "username": "dbUser",
-        "password": "a5wh61d5kj8Jtewl",
-        "host": "cluster0.iz7ya.mongodb.net/JestDB?retryWrites=true&w=majority"
+        // MongoDB lokálisan:
+        // "username": "dbUser",
+        // "password": "a5wh61d5kj8Jtewl",
+        // "host": "mongo:27017/myFirstDatabase?retryWrites=true&w=majority"
+        // MongoDB Atlas:
+        "username": "NodeJS",
+        "password": "i0LXkg5zDv5CScsp",
+        "host": "mongodb+srv://NodeUser:i0LXkg5zDv5CScsp@cluster0.qet8e.mongodb.net/jestDatabase?retryWrites=true&w=majority"
+        // "host": "mongodb+srv://NodeUser:i0LXkg5zDv5CScsp@cluster0.qet8e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     }
 }

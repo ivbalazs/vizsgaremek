@@ -5,8 +5,8 @@ const UserModel = require('../models/user.model');
 // Példa: https://www.npmjs.com/package/mongoose-bcrypt
 
 // (async () => {
-//     const admin = new UserModel({ name: 'Admin', email: 'admin@gmail.com', password: 'admin_pw' });
-//     const user = new UserModel({ name: 'user', email: 'user@gmail.com', password: 'user_pw' });
+//     const admin = new UserModel({ name: 'Admin', email: 'admin@gmail.com', password: 'admin_pw', role: '3' });
+//     const user = new UserModel({ name: 'User', email: 'user@gmail.com', password: 'user_pw', role: '2' });
 //     await admin.save();
 //     await user.save();
 // })();

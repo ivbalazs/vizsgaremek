@@ -1,11 +1,11 @@
-const personService = jest.mock('./person.service');
+const userService = jest.mock('./user.service');
 
 let mockData;
 
-personService.findOne = jest.fn( id => Promise.resolve(
-    mockData.find( p => p.id === id) ) 
+userService.findOne = jest.fn(id => Promise.resolve(
+    mockData.find(p => p._id === id))
 );
 
-personService.__setMockData = data => mockData = data;
+userService.__setMockData = data => mockData = data;
 
-module.exports = personService;
+module.exports = userService;
