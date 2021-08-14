@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -27,7 +26,6 @@ export class EditCostServiceComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private router: Router,
-    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -41,49 +39,27 @@ export class EditCostServiceComponent implements OnInit {
     this.chosenCostService._id = this.costService._id;
   }
 
-
   onFormSubmit(form: NgForm): void {
     this.updating = true;
     if (!this.costService._id) {
       this.costServiceService.create(this.costService).subscribe(
-        res => this.router.navigate(['costservice'])
-      );
+        () => {
+          this.toastr.success('Sikeresen létrehoztad a költség szolgáltatót!', 'Létrehozva!', {
+            timeOut: 3000,
+          });
+          this.router.navigate(['costservice']);
+        });
     } else {
-      this.costServiceService
-        .update(this.costService)
-        .subscribe(() => this.router.navigate(['costservice']));
-    }
-  }
-
-
-  setCostServiceToDatabase(costService: CostService): void {
-    this.updating = true;
-    // costService._id = Number(costService._id);
-    if (costService._id === '0') {
-      this.costServiceService.create(costService).subscribe(
+      this.costServiceService.update(this.costService).subscribe(
         () => {
           this.toastr.success('Sikeresen módosítottad a költség szolgáltatót!', 'Módosítva!', {
             timeOut: 3000,
           });
-          this.updating = false;
           this.router.navigate(['costservice']);
-        },
-        (error) =>
-          this.toastr.error('Hiba történt, nem sikerült módosítani a költség szolgáltatót!', 'Hiba!', {
-            timeOut: 3000,
-          })
-      );
-    } else {
-      this.costServiceService.update(costService).subscribe(
-        () => {
-          this.toastr.success('Sikeresen módosítottad a költség szolgáltatót!', 'Módosítva!', { timeOut: 3000 });
-          this.updating = false;
-          this.router.navigate(['costservice']);
-        },
-        (error) =>
-          this.toastr.error('Hiba történt, nem sikerült módosítani a költség szolgáltatót!', 'Hiba!', { timeOut: 3000 })
-      );
+        });
     }
   }
+
+
 
 }

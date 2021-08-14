@@ -6,8 +6,7 @@
                     <div *ngIf="!updating" class="form-group">
                         <h2 *ngIf="cost._id==0" class="card-title mb-5">Új költség létrehozása</h2>
                         <h2 *ngIf="cost._id!=0" class="card-title mb-5">Költség módosítása</h2>
-                        <label for="cost">#</label>
-                        <input [(ngModel)]="cost._id" id="cost" name="cost" type="number" class="form-control" disabled>
+                        <input [(ngModel)]="cost._id" id="cost" name="cost" type="hidden" class="form-control" disabled>
                     </div>
 
                     <div class="form-group">
@@ -49,7 +48,7 @@
                     <div class="form-group">
                         <label for="description">Leírás</label>
                         <input name="description" [(ngModel)]="cost.description" type="text" class="form-control pl-3"
-                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí0-9 .,]+$" required>
 
                         <div [hidden]="
                                         costForm.controls.description?.valid ||
@@ -62,7 +61,7 @@
                     <div class="form-group">
                         <label for="costCategoryName">Költség kategória</label>
                         <input name="costCategoryName" [(ngModel)]="cost.costCategoryName" type="text"
-                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí .-]+$" required>
 
                         <div [hidden]="
                                         costForm.controls.costCategoryName?.valid ||

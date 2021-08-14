@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'app/model/user';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { ConfigService } from './config.service';
 import { UserService } from './user.service';
 
@@ -15,7 +15,6 @@ export class AuthService {
   loginUrl = `${this.config.apiUrl}login`;
   logoutUrl = `${this.config.apiUrl}logout`;
   storageName = 'currentUser';
-  // currentUserSubject: BehaviorSubject<User> = new BehaviorSubject(null);
   currentUserSubject: BehaviorSubject<User | null> = new BehaviorSubject(null);
   lastToken: string = null;
 

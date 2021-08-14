@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UserService } from 'app/service/user.service';
 import { ConfigService } from 'app/service/config.service';
 import { User } from 'app/model/user';
@@ -18,7 +18,6 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private config: ConfigService,
   ) { }
 
   ngOnInit(): void {

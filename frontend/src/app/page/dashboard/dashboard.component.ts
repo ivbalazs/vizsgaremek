@@ -38,9 +38,6 @@ export class DashboardComponent implements OnInit {
     this.incomeService.getAll();
 
   }
-
-
-
 }
 
 

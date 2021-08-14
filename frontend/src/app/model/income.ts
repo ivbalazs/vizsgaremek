@@ -1,8 +1,7 @@
 export class Income {
+    _id: string = '';
     date: string = '';
     incomeName: string = '';
     sum: number = 0;
     description: string = '';
-    _id: string = '';
-    // id: number = 0;
 }

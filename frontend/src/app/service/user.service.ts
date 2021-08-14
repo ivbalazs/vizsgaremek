@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ConfigService } from './config.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../model/user';
 import { tap } from 'rxjs/operators';

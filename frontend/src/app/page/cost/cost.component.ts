@@ -14,7 +14,15 @@ export class CostComponent implements OnInit {
   costList$: BehaviorSubject<Cost[]> = this.costService.list$;
   txt: string = '';
   phraseKey: string = '';
-  keyArray: string[] = Object.keys(new Cost());
+  keyArray: { 'hu': string, 'en': string }[] = [
+    { 'hu': 'Keresés', 'en': '' },
+    { 'hu': 'Dátum', 'en': 'date' },
+    { 'hu': 'Név', 'en': 'name' },
+    { 'hu': 'Összeg', 'en': 'sum' },
+    { 'hu': 'Leírás', 'en': 'description' },
+    { 'hu': 'Költség kategória', 'en': 'costCategoryName' },
+    { 'hu': 'Költség szolgáltató', 'en': 'costServiceName' },
+  ];
 
   // sorter
   columnKey: string = '';

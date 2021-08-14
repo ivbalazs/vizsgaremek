@@ -23,7 +23,6 @@ export class CostCategoryService {
   }
 
   get(_id: number | string): Observable<CostCategory> {
-    // _id = parseInt(('' + _id), 10);
     return this.http.get<CostCategory>(`${this.costApiUrl}/${_id}`);
   }
 
@@ -39,7 +38,6 @@ export class CostCategoryService {
   }
 
   remove(_id: number | string): void {
-    // _id = parseInt(('' + _id), 10);
     this.http.delete<CostCategory>(`${this.costApiUrl}/${_id}`).subscribe(
       () => this.getAll()
     );

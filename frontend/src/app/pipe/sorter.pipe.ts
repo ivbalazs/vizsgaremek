@@ -24,8 +24,6 @@ export class SorterPipe implements PipeTransform {
       if (typeof (a[key]) === 'number' && typeof (b[key]) === 'number') {
         return a[key] - b[key];
       } else {
-        // a[key] = ('' + a[key]).toLowerCase();
-        // b[key] = ('' + b[key]).toLowerCase();
         a[key] = ('' + a[key]);
         b[key] = ('' + b[key]);
         return a[key].localeCompare(b[key]);
@@ -38,8 +36,6 @@ export class SorterPipe implements PipeTransform {
       if (typeof (a[key]) === 'number' && typeof (b[key]) === 'number') {
         return b[key] - a[key];
       } else {
-        // a[key] = ('' + a[key]).toLowerCase();
-        // b[key] = ('' + b[key]).toLowerCase();
         a[key] = ('' + a[key]);
         b[key] = ('' + b[key]);
         return b[key].localeCompare(a[key]);

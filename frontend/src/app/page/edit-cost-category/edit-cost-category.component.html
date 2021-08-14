@@ -2,21 +2,19 @@
     <div class="container-fluid">
         <div class="row">
             <div *ngIf="costCategory" class="col-6 offset-3">
-                <!-- <form #costCategoryForm="ngForm" (ngSubmit)="setCostCategoryToDatabase(costCategory)"> -->
                 <form #costCategoryForm="ngForm" (ngSubmit)="onFormSubmit(costCategoryForm)">
                     <div *ngIf="!updating" class="form-group">
                         <h2 *ngIf="costCategory._id==0" class="card-title mb-5">Új költség kategória létrehozása</h2>
                         <h2 *ngIf="costCategory._id!=0" class="card-title mb-5">Költség kategória módosítása
                         </h2>
-                        <label for="costCategory">#</label>
-                        <input [(ngModel)]="costCategory._id" id="costCategory" name="costCategory" type="number"
+                        <input [(ngModel)]="costCategory._id" id="costCategory" name="costCategory" type="hidden"
                             class="form-control" disabled>
                     </div>
 
                     <div class="form-group">
                         <label for="costCategoryName">Költség kategória</label>
                         <input name="costCategoryName" [(ngModel)]="costCategory.costCategoryName" type="text"
-                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí .,]+$" required>
 
                         <div [hidden]="
                                         costCategoryForm.controls.costCategoryName?.valid ||
@@ -29,7 +27,7 @@
                     <div class="form-group">
                         <label for="description">Leírás</label>
                         <input name="description" [(ngModel)]="costCategory.description" type="text"
-                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+                            class="form-control pl-3" pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí .,]+$" required>
 
                         <div [hidden]="
                                         costCategoryForm.controls.description?.valid ||

@@ -3,28 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
-
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
 
-// import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
 import {
   AgmCoreModule
 } from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CostComponent } from './page/cost/cost.component';
-import { NavigationComponent } from './common/navigation/navigation.component';
-import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { SorterPipe } from './pipe/sorter.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
 import { ToastrModule } from 'ngx-toastr';
@@ -35,12 +21,10 @@ import { EditCostServiceComponent } from './page/edit-cost-service/edit-cost-ser
 import { CostServiceComponent } from './page/cost-service/cost-service.component';
 import { IncomeComponent } from './page/income/income.component';
 import { EditIncomeComponent } from './page/edit-income/edit-income.component';
-import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
 import { UsersComponent } from './page/users/users.component';
 import { UserEditComponent } from './page/user-edit/user-edit.component';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
-import { NavComponent } from './page/nav/nav.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 
@@ -64,10 +48,7 @@ import { JwtInterceptorService } from './service/jwt-interceptor.service';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
     CostComponent,
-    NavigationComponent,
-    DashboardComponent,
     SorterPipe,
     FilterPipe,
     EditCostComponent,
@@ -77,12 +58,10 @@ import { JwtInterceptorService } from './service/jwt-interceptor.service';
     CostServiceComponent,
     IncomeComponent,
     EditIncomeComponent,
-    HomeComponent,
     LoginComponent,
     UsersComponent,
     UserEditComponent,
     ForbiddenComponent,
-    NavComponent,
 
   ],
   providers: [

@@ -2,14 +2,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="d-flex mb-3 col-6 offset-6">
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <select [(ngModel)]="phraseKey" class="custom-select">
-                        <!-- <option value="">Keresés </option> -->
-                        <!-- <option value="date">Dátum</option>
-                        <option value="incomeName">Megnevezés</option>
-                        <option value="sum">Összeg</option>
-                        <option value="description">Leírás</option>
-                        <option value="id">#</option> -->
                         <option *ngFor="let key of keyArray" [value]="key.en">
                             {{ key.hu }}
                         </option>
@@ -91,20 +85,6 @@
                                                 style="cursor: pointer">keyboard_arrow_up</i>
                                         </div>
                                     </th>
-                                    <th (click)="onColumnSelect('_id')">
-                                        #
-                                        <div>
-                                            <i *ngIf="columnKey !== '_id'"
-                                                class="material-icons align-text-bottom text-info"
-                                                style="cursor: pointer">indeterminate_check_box</i>
-                                            <i *ngIf="columnKey === '_id' && direction === 'asc'"
-                                                class="material-icons align-text-top"
-                                                style="cursor: pointer">keyboard_arrow_down</i>
-                                            <i *ngIf="columnKey === '_id' && direction === 'dsc'"
-                                                class="material-icons align-text-bottom"
-                                                style="cursor: pointer">keyboard_arrow_up</i>
-                                        </div>
-                                    </th>
                                     <th>
                                         <div>Szerkesztés|Törlés</div>
                                     </th>
@@ -121,7 +101,6 @@
                                         <td class="text-center">{{ income.incomeName }}</td>
                                         <td class="text-center">{{ income.sum }}</td>
                                         <td class="text-center">{{ income.description }}</td>
-                                        <td class="text-center">{{ income._id }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <button [routerLink]="[income._id]" class="btn btn-success">

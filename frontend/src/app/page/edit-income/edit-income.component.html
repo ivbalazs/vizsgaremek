@@ -2,14 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <div *ngIf="income" class="col-6 offset-3">
-                <!-- <form #incomeForm="ngForm" (ngSubmit)="setIncomeToDatabase(income)"> -->
                 <form #incomeForm="ngForm" (ngSubmit)="onFormSubmit(incomeForm)">
                     <div *ngIf="!updating" class="form-group">
                         <h2 *ngIf="income._id==0" class="card-title mb-5">Új bevétel létrehozása</h2>
-                        <h2 *ngIf="income._id!=0" class="card-title mb-5">Bevétel módosítása
-                        </h2>
-                        <label for="income">#</label>
-                        <input [(ngModel)]="income._id" id="income" name="income" type="number" class="form-control"
+                        <h2 *ngIf="income._id!=0" class="card-title mb-5">Bevétel módosítása</h2>
+                        <input [(ngModel)]="income._id" id="income" name="income" type="hidden" class="form-control"
                             disabled>
                     </div>
 
@@ -29,7 +26,7 @@
                     <div class="form-group">
                         <label for="name">Megnevezés</label>
                         <input name="name" [(ngModel)]="income.incomeName" type="text" class="form-control pl-3"
-                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]+$" required>
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí .]+$" required>
 
                         <div [hidden]="incomeForm.controls.name?.valid ||
                                        incomeForm.controls.name?.pristine
@@ -52,7 +49,7 @@
                     <div class="form-group">
                         <label for="description">Leírás</label>
                         <input name="description" [(ngModel)]="income.description" type="text" class="form-control pl-3"
-                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí 0-9-]+$" required>
+                            pattern="^[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí 0-9-.]+$" required>
 
                         <div [hidden]="
                                         incomeForm.controls.description?.valid ||

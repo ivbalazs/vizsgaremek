@@ -23,7 +23,6 @@ export class IncomeService {
   }
 
   get(_id: number | string): Observable<Income> {
-    // _id = parseInt(('' + _id), 10);
     return this.http.get<Income>(`${this.incomeApiUrl}/${_id}`);
   }
 
@@ -39,7 +38,6 @@ export class IncomeService {
   }
 
   remove(_id: number | string): void {
-    // _id = parseInt(('' + _id), 10);
     this.http.delete<Income>(`${this.incomeApiUrl}/${_id}`).subscribe(
       () => this.getAll()
     );
