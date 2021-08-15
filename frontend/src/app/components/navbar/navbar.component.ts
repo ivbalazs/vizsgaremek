@@ -1,12 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-//új nav:
-// import { ConfigService } from 'app/service/config.service';
-// import { Subscription } from 'rxjs';
-// import { User } from 'app/model/user';
-// import { AuthService } from 'app/service/auth.service';
 
 @Component({
     selector: 'app-navbar',
@@ -20,19 +15,10 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    // új nav:
-    // navigation = this.config.navigation;
-    // loginStatus = false;
-    // userSub: Subscription;
-    // user: User | null = null;
-
     constructor(
         location: Location,
         private element: ElementRef,
         private router: Router,
-        // új nav:
-        // private config: ConfigService,
-        // private auth: AuthService,
     ) {
         this.location = location;
         this.sidebarVisible = false;
@@ -50,10 +36,6 @@ export class NavbarComponent implements OnInit {
                 this.mobile_menu_visible = 0;
             }
         });
-        // új nav: 
-        // this.userSub = this.auth.currentUserSubject.subscribe(
-        //     user => this.user = user
-        // );
     }
 
     sidebarOpen() {
@@ -144,14 +126,5 @@ export class NavbarComponent implements OnInit {
         }
         return 'Dashboard';
     }
-
-    //új nav:
-    // ngOnDestroy() {
-    //     this.userSub.unsubscribe();
-    // }
-
-    // onLogout() {
-    //     this.auth.logout();
-    // }
 
 }

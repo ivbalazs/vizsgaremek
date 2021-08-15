@@ -1,7 +1,7 @@
 {
   "name": "nodejs-api-fejlesztes",
   "version": "1.0.0",
-  "description": "* Node.js - Download and Install [Node.js](http://www.nodejs.org/download/).\r * MongoDB - Download and Install [MongoDB](http://www.mongodb.org/downloads) - Make sure it's running on the default port (27017).",
+  "description": "* Node.js - Download and Install [Node.js](http://www.nodejs.org/download/).",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -25,17 +25,9 @@
     "winston": "^3.3.3",
     "yamljs": "^0.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Training360/nodejs-api-fejlesztes.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Training360/nodejs-api-fejlesztes/issues"
-  },
-  "homepage": "https://github.com/Training360/nodejs-api-fejlesztes#readme",
   "devDependencies": {
     "jest": "^26.6.3",
     "jest-mock-req-res": "^1.0.2"

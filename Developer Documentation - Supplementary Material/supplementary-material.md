@@ -22,7 +22,7 @@ A felhasználó számára áttekinthetőbbé válnak bevételei és kiadásai. A
 
 **Megjelenése:**
 
-- Az alkalmazás egy fejléces navigációval rendelkezik, amelyen az egyes oldalak között lehet váltani
+- Az alkalmazás bal oldalt egy navigációval rendelkezik, amelyen az egyes oldalak között lehet váltani
 - Teljesen reszponzív, mobile-first szemléletű
 
 ---
@@ -36,7 +36,13 @@ A felhasználó számára áttekinthetőbbé válnak bevételei és kiadásai. A
 
 ---
 
-**Komponens neve:** Dashboard  
+**Service neve:** auth  
+**Osztály helye:** service/auth
+
+**Komponens neve:** login  
+**Komponens helye:** page/login
+
+**Komponens neve:** dashboard  
 **Komponens helye:** page/dashboard
 
 
@@ -47,8 +53,14 @@ A felhasználó számára áttekinthetőbbé válnak bevételei és kiadásai. A
 
 ---
 
-**Komponens neve:** navigation  
-**Komponens helye:** common/navigation
+**Komponens neve:** navbar  
+**Komponens helye:** components/navbar
+
+**Komponens neve:** sidebar  
+**Komponens helye:** components/sidebar
+
+**Komponens neve:** footer  
+**Komponens helye:** components/footer
 
 
 ## _**3. Költségek adatbázis**_
@@ -63,15 +75,18 @@ A felhasználó számára áttekinthetőbbé válnak bevételei és kiadásai. A
 **Komponens neve:** cost  
 **Komponens helye:** page/cost
 
+**Komponens neve:** edit-cost  
+**Komponens helye:** page/edit-cost
+
 
 A költségekhez tartozó adatok:
-- date (dátum)
+- _id (azonosító)
 - name (név)
+- date (dátum)
 - sum (összeg)
 - description (leírás)
 - costCategoryName (költség kategória neve)
 - costServiceName (költség szolgáltatójának neve)
-- _id (azonosító)
 
 
 **Create:**
@@ -81,7 +96,6 @@ A költségekhez tartozó adatok:
 
 - Az új költség gombra való kattintással egy új oldal nyílik meg, ahol egy új költség adatait lehet input mezők segítségével bevinni.
 - A Mentés gombra kattintva a program az adatbázisba menti a megadott adatokat.
-- A Vissza gombra kattintva az összes költséget listázó oldalra navigál vissza az alkalmazás.
 
 ---
 
@@ -92,7 +106,6 @@ A költségekhez tartozó adatok:
 
 - Az Update gombra való kattintással a költség egyedi adatait tartalmazó aloldal nyílik meg, ahol a választott költség adatait lehet szerkeszthető mezők segítségével módosítani.
 - A Mentés gombra kattintva a program az adatbázisba menti a módosított adatokat.
-- A Vissza gombra kattintva az összes költséget listázó oldalra navigál vissza az alkalmazás.
 
 ---
 
@@ -108,17 +121,9 @@ A költségekhez tartozó adatok:
 
 **Listázás:**
 
-> _Egy legördülő menü segítségével kategóriák szerint listázhatóak a költségek._
+> _A költségek listája táblázatban megjelenik._
 
-- A Search gombra való kattintással az alkalmazás kikeresi a választott kategóriának megfelelő entitásokat az adatbázisból, és listázza azokat.
-
----
-
-**Szabadszavas keresés:**
-
-> _Egy szabadszavas input mező segítségével bármilyen kulcsszóra lehet keresni az adatbázisban a választott kategórián belül._
-
-- A Search gombra való kattintással az alkalmazás kikeresi a kulcsszónak megfelelő entitásokat az adatbázisnak a legördülő menüben választott kategóriájából, és listázza azokat.
+- A Keresés mezőbe beírva az alkalmazás automatikusan listázza azokat az entitásokat, amelyek a keresés feltételeinek megfelelnek.
 
 ---
 
@@ -144,10 +149,9 @@ A költségekhez tartozó adatok:
 **Komponens helye:** page/cost-category  
 
 A költség kategóriához tartozó adatok:
+- _id (azonosító)
 - costCategoryName (költség kategória neve)
 - description (leírás)
-- active (Aktív)
-- _id (azonosító)
 
 **Create:**
 
@@ -156,7 +160,6 @@ A költség kategóriához tartozó adatok:
 
 - Az új költség kategória gombra való kattintással egy új oldal nyílik meg, ahol egy új kategória adatait lehet input mezők segítségével bevinni.
 - A Mentés gombra kattintva a program az adatbázisba menti a megadott adatokat.
-- A Vissza gombra kattintva az összes kategóriat listázó oldalra navigál vissza az alkalmazás.
 
 ---
 
@@ -167,7 +170,6 @@ A költség kategóriához tartozó adatok:
 
 - Az Update gombra való kattintással a költség kategória egyedi adatait tartalmazó aloldal nyílik meg, ahol a választott kategória adatait lehet szerkeszthető mezők segítségével módosítani.
 - A Mentés gombra kattintva a program az adatbázisba menti a módosított adatokat.
-- A Vissza gombra kattintva az összes kategóriát listázó oldalra navigál vissza az alkalmazás.
 
 ---
 
@@ -183,17 +185,9 @@ A költség kategóriához tartozó adatok:
 
 **Listázás:**
 
-> _Egy legördülő menü segítségével típusok szerint listázhatóak a költség kategóriák._
+> _A költség kategóriák listája táblázatban megjelenik._
 
-- A Search gombra való kattintással az alkalmazás kikeresi a választott kategóriának megfelelő entitásokat az adatbázisból és listázza azokat.
-
----
-
-**Szabadszavas keresés:**
-
-> _Egy szabadszavas input mező segítségével bármilyen kulcsszóra lehet keresni az adatbázisban a választott kategórián belül._
-
-- A Search gombra való kattintással az alkalmazás kikeresi a kulcsszónak megfelelő entitásokat az adatbázisnak a legördülő menüben választott kategóriájából, és listázza azokat.
+- A Keresés mezőbe beírva az alkalmazás automatikusan listázza azokat az entitásokat, amelyek a keresés feltételeinek megfelelnek.
 
 ---
 
@@ -220,11 +214,14 @@ A költség kategóriához tartozó adatok:
 **Komponens neve:** cost-service    
 **Komponens helye:** page/cost-service  
 
+**Komponens neve:** edit-cost-service    
+**Komponens helye:** page/edit-cost-service  
+
 A költség szolgáltatókhoz tartozó adatok:
+- _id (azonosító)
 - costServiceName(költség szolgáltatójának neve)
 - address (címe)
 - description (leírás)
-- _id (azonosító)
 
 **Create:**
 
@@ -233,7 +230,6 @@ A költség szolgáltatókhoz tartozó adatok:
 
 - Az új költség szolgáltató gombra való kattintással egy új oldal nyílik meg, ahol egy új szolgáltató adatait lehet input mezők segítségével bevinni.
 - A Mentés gombra kattintva a program az adatbázisba menti a megadott adatokat.
-- A Vissza gombra kattintva az összes szolgáltatót listázó oldalra navigál vissza az alkalmazás.
 
 ---
 
@@ -244,7 +240,6 @@ A költség szolgáltatókhoz tartozó adatok:
 
 - Az Update gombra való kattintással a költség szolgáltató egyedi adatait tartalmazó aloldal nyílik meg, ahol a választott szolgáltató adatait lehet szerkeszthető mezők segítségével módosítani.
 - A Mentés gombra kattintva a program az adatbázisba menti a módosított adatokat.
-- A Vissza gombra kattintva az összes szolgáltatót listázó oldalra navigál vissza az alkalmazás.
 
 ---
 
@@ -260,17 +255,9 @@ A költség szolgáltatókhoz tartozó adatok:
 
 **Listázás:**
 
-> _Egy legördülő menü segítségével kategóriák szerint listázhatóak a költség szolgáltatók._
+> _A költség szolgáltatók listája táblázatban megjelenik._
 
-- A Search gombra való kattintással az alkalmazás kikeresi a választott kategóriának megfelelő entitásokat az adatbázisból, és listázza azokat.
-
----
-
-**Szabadszavas keresés:**
-
-> _Egy szabadszavas input mező segítségével bármilyen kulcsszóra lehet keresni az adatbázisban a választott kategórián belül._
-
-- A Search gombra való kattintással az alkalmazás kikeresi a kulcsszónak megfelelő entitásokat az adatbázisnak a legördülő menüben választott kategóriájából, és listázza azokat.
+- A Keresés mezőbe beírva az alkalmazás automatikusan listázza azokat az entitásokat, amelyek a keresés feltételeinek megfelelnek.
 
 ---
 
@@ -296,11 +283,14 @@ A költség szolgáltatókhoz tartozó adatok:
 **Komponens neve:** income    
 **Komponens helye:** page/income  
 
+**Komponens neve:** edit-income    
+**Komponens helye:** page/edit-income  
+
 A bevételhez tartozó adatok:
-- id (azonosító)
+- _id (azonosító)
+- date (dátum)
 - incomeName (bevétel megnevezése)
 - sum (összeg)
-- date (dátum)
 - description (leírás)
 
 
@@ -338,17 +328,9 @@ A bevételhez tartozó adatok:
 
 **Listázás:**
 
-> _Egy legördülő menü segítségével kategóriák szerint listázhatóak a bevételk._
+> _A bevételek listája táblázatban megjelenik._
 
-- A Search gombra való kattintással az alkalmazás kikeresi a választott kategóriának megfelelő entitásokat az adatbázisból, és listázza azokat.
-
----
-
-**Szabadszavas keresés:**
-
-> _Egy szabadszavas input mező segítségével bármilyen kulcsszóra lehet keresni az adatbázisban a választott kategórián belül._
-
-- A Search gombra való kattintással az alkalmazás kikeresi a kulcsszónak megfelelő entitásokat az adatbázisnak a legördülő menüben választott kategóriájából, és listázza azokat.
+- A Keresés mezőbe beírva az alkalmazás automatikusan listázza azokat az entitásokat, amelyek a keresés feltételeinek megfelelnek.
 
 ---
 
@@ -374,28 +356,21 @@ A bevételhez tartozó adatok:
 **Service neve:** user  
 **Osztály helye:** service/user 
 
-**Komponens neve:** user    
-**Komponens helye:** page/user
+**Komponens neve:** users   
+**Komponens helye:** page/users
+
+**Komponens neve:** user-edit   
+**Komponens helye:** page/user-edit
 
 Az aloldal megjeleníti az összes felhasználó adatait lista formátumban.  
 
 Ezek az adatok a következők:
-- id (azonosító)
+- _id (azonosító)
 - name (név)
-- username (felhasználónév)
 - email (e-mail)
 - password (jelszó)
+- role (jogosultság)
 
-**Create:**
-
-> _Az új felhasználó gombra kattintva egy űrlap segítségével 
-> új felhasználó adatai vehetők fel és menthetők az adatbázisban._
-
-- Az új felhasználó gombra való kattintással egy új oldal nyílik meg, ahol egy új felhasználó adatait lehet input mezők segítségével bevinni.
-- A Mentés gombra kattintva a program az adatbázisba menti a megadott adatokat.
-- A Vissza gombra kattintva az összes felhasználót listázó oldalra navigál vissza az alkalmazás.
-
----
 
 **Update:**
 
@@ -404,18 +379,17 @@ Ezek az adatok a következők:
 
 - Az Update gombra való kattintással a felhasználó egyedi adatait tartalmazó aloldal nyílik meg, ahol a felhasználó adatait lehet szerkeszthető mezők segítségével módosítani.
 - A Mentés gombra kattintva a program az adatbázisba menti a módosított adatokat.
-- A Vissza gombra kattintva az összes felhasználót listázó oldalra navigál vissza az alkalmazás.
 
 ---
 
-**Delete:**
+**Listázás:**
 
-> _A Delete ikonnal ellátott gombra kattintva 
-> egy felhasználó törölhető az adatbázisból._
+> _A felhasználók listája táblázatban megjelenik._
 
-- A Delete gombra való kattintással az alkalmazás törli a felhasználót az adatbázisból.
-- Az adatbázisból való törlést követően az alkalmazás frissíti a listaoldalt, ahol a már törölt felhasználó nem lesz látható.
+- A Keresés mezőbe beírva az alkalmazás automatikusan listázza azokat az entitásokat, amelyek a keresés feltételeinek megfelelnek.
+
 ---
+
 
 ## **Linkek:**  
 

@@ -6,17 +6,17 @@
 ## _**1. Főoldal**_
 ---
 **1. agilis felhasználói történet:**
-> _A főoldalon egy üdvözlő szöveg és bejelentkezési lehetőség felhasználónév és jelszóval, vagy regisztráció után._
+> _A főoldalon van a bejelentkezési lehetőség e-mail címmel és jelszóval._
 
 **Elfogadási kritérium:**  
-- Jól működő bejelentkezés és regisztráció.
+- Jól működő bejelentkezés.
 
 ---
 ---
 ## _**2. Dashboard oldal**_
 ---
 **1. agilis felhasználói történet:**
-> _A bejelentkezés után lesz látható egy menüsáv választható menüpontokkal. A dashboard egyoldalas adatvizuális felület, amelyen gyorsan értelmezhető összegző grafikonokon teljes képet fog kapni a felhasználó kiadásairól és bevételeiről._
+> _A bejelentkezés után lesz látható egy menüsáv választható menüpontokkal. A dashboard egyoldalas adatvizuális felület, amelyen gyorsan értelmezhető összegző képet fog kapni a felhasználó kiadásairól és bevételeiről._
 
 **Elfogadási kritérium:**  
 - Az adatokat helyesen összegezze és első ránézésre könnyen értelmező formában jelenjen meg.
@@ -147,6 +147,26 @@
 - Egy korábban felvitt bevétel törlés ikonjára kattintva törölhető.
 ---
 ---
+## _**7. Egyéni költségeket nyilvántartó rendszer: felhasználó aloldalai**_
+---
+
+**1. agilis felhasználói történet:**
+
+> _A korábban felvitt felhasználókat lehet megtekinteni._
+
+**Elfogadási kritérium:**  
+- Az aloldal megjeleníti az összes felhasználót lista formátumban.
+
+---
+
+**2. agilis felhasználói történet:**
+
+> _A felhasználó adatai szerkeszthetők._
+
+**Elfogadási kritérium:**  
+- Egy korábban felvitt felhasználóra kattintva szerkeszthetővé válnak adatai.
+---
+---
 
 ## _**A projekt egyéb adatai:**_
 
@@ -161,5 +181,14 @@
 
 **További fejlesztési lehetőségek:**  
 - A dashboard oldalon grafikonok elhelyezése.
-- Hibaüzenetek megjelenítése (validálás).
 - A listázó aloldalakon lapozó készítése.
+
+---
+---
+
+## **Linkek:**  
+
+- [A dokumentáció itt érhető el.](https://github.com/ivbalazs/vizsgaremek/blob/main/DOCUMENTATION.md)
+
+- [A kiegészítő anyagok itt érhetők el.](https://github.com/ivbalazs/vizsgaremek/blob/main/Developer%20Documentation%20-%20Supplementary%20Material/supplementary-material.md)
+

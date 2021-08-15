@@ -24,9 +24,3 @@ const UserSchema = mongoose.Schema({
 UserSchema.plugin(require('mongoose-bcrypt'));
 
 module.exports = mongoose.model('User', UserSchema);
-
-// _id: number;
-// name: string;
-// email: string;
-// password: string;
-// role: number;

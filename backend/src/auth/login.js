@@ -1,19 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-const Users = [
-    {
-        email: 'admin@gmail.com',
-        // username: 'admin',
-        password: 'admin_pw',
-        role: 'admin'
-    },
-    {
-        username: 'user',
-        password: 'user_pw',
-        role: 'user'
-    }
-];
-
 module.exports = (req, res) => {
     const { email, password } = req.body;
 

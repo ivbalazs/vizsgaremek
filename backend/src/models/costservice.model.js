@@ -1,10 +1,4 @@
 const mongoose = require('mongoose');
-//const idValidator = require('mongoose-id-validator');
-
-// costServiceName: string = '';
-// address: string = '';
-// description: string = '';
-// _id: string = '';
 
 const CostServiceSchema = mongoose.Schema({
     costServiceName: {
@@ -22,7 +16,5 @@ const CostServiceSchema = mongoose.Schema({
 }, {
     timestamps: true
 });
-
-//IncomeSchema.plugin(idValidator);
 
 module.exports = mongoose.model('CostService', CostServiceSchema);

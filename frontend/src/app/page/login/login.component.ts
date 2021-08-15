@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
         }
       },
       err => {
-        this.serverError = err.error;
+        this.serverError = 'Rossz e-mail cím vagy jelszó!';
+        // this.serverError = err.error;
         const to = setTimeout(() => {
           clearTimeout(to);
           this.serverError = '';

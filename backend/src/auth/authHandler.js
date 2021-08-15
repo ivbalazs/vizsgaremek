@@ -1,9 +1,7 @@
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user.model');
 
-// Biztonságosabb megoldás, az adatbázis használata.
-// Példa: https://www.npmjs.com/package/mongoose-bcrypt
-
+// Felhasználók létrehozása:
 // (async () => {
 //     const admin = new UserModel({ name: 'Admin', email: 'admin@gmail.com', password: 'admin_pw', role: '3' });
 //     const user = new UserModel({ name: 'User', email: 'user@gmail.com', password: 'user_pw', role: '2' });

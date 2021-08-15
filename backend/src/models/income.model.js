@@ -1,13 +1,4 @@
 const mongoose = require('mongoose');
-//const idValidator = require('mongoose-id-validator');
-
-// export class Income {
-//     date: string = '';
-//     incomeName: string = '';
-//     sum: number = 0;
-//     description: string = '';
-//     id: number = 0;
-// }
 
 const IncomeSchema = mongoose.Schema({
     date: {
@@ -29,7 +20,5 @@ const IncomeSchema = mongoose.Schema({
 }, {
     timestamps: true
 });
-
-//IncomeSchema.plugin(idValidator);
 
 module.exports = mongoose.model('Income', IncomeSchema);

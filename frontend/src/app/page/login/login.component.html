@@ -2,7 +2,8 @@
     <div class="col-12 text-center">
         <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" class="form-signin mt-5">
             <h1 class="h3 mb-5 font-weight-normal">Bejelentkezés</h1>
-            <p *ngIf="emailField.invalid && emailField.touched" class="error-message">Kérlek érvényes jelszót adjál meg!
+            <p *ngIf="emailField.invalid && emailField.touched" class="error-message">Kérlek érvényes e-mail címet adjál
+                meg!
             </p>
             <label for="inputEmail" class="sr-only">E-mail cím</label>
             <input type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" email id="inputEmail"
